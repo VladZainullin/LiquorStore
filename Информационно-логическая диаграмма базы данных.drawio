@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2024-07-02T19:52:32.096Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36" etag="gPbakhmNRkgaaGIk6eYJ" version="24.6.4" type="github">
+<mxfile host="app.diagrams.net" modified="2024-07-02T19:53:04.824Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36" etag="g9T6fj49Zj0m_nlsfFQg" version="24.6.4" type="github">
   <diagram name="Страница — 1" id="W9IkOPkcE-70tv02vc99">
-    <mxGraphModel dx="1272" dy="808" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1122" dy="713" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -175,7 +175,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="TIuWhn0yAi8Gs-Zh3u9J-110" value="Курьер" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;fontFamily=Helvetica;fontColor=default;labelBackgroundColor=default;" vertex="1" parent="1">
-          <mxGeometry x="836" y="239" width="160" height="116" as="geometry" />
+          <mxGeometry x="620" y="90" width="160" height="116" as="geometry" />
         </mxCell>
         <mxCell id="TIuWhn0yAi8Gs-Zh3u9J-114" value="Имя" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=11;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontColor=default;labelBackgroundColor=default;" vertex="1" parent="TIuWhn0yAi8Gs-Zh3u9J-110">
           <mxGeometry y="26" width="160" height="30" as="geometry" />
@@ -184,18 +184,6 @@
           <mxGeometry y="56" width="160" height="30" as="geometry" />
         </mxCell>
         <mxCell id="TIuWhn0yAi8Gs-Zh3u9J-116" value="Отчество" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=11;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontColor=default;labelBackgroundColor=default;" vertex="1" parent="TIuWhn0yAi8Gs-Zh3u9J-110">
-          <mxGeometry y="86" width="160" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="TIuWhn0yAi8Gs-Zh3u9J-130" value="List" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;fontFamily=Helvetica;fontColor=default;labelBackgroundColor=default;" vertex="1" parent="1">
-          <mxGeometry x="740" y="76" width="160" height="116" as="geometry" />
-        </mxCell>
-        <mxCell id="TIuWhn0yAi8Gs-Zh3u9J-131" value="Item 1" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=11;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontColor=default;labelBackgroundColor=default;" vertex="1" parent="TIuWhn0yAi8Gs-Zh3u9J-130">
-          <mxGeometry y="26" width="160" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="TIuWhn0yAi8Gs-Zh3u9J-132" value="Item 2" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=11;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontColor=default;labelBackgroundColor=default;" vertex="1" parent="TIuWhn0yAi8Gs-Zh3u9J-130">
-          <mxGeometry y="56" width="160" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="TIuWhn0yAi8Gs-Zh3u9J-133" value="Item 3" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=11;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontColor=default;labelBackgroundColor=default;" vertex="1" parent="TIuWhn0yAi8Gs-Zh3u9J-130">
           <mxGeometry y="86" width="160" height="30" as="geometry" />
         </mxCell>
       </root>

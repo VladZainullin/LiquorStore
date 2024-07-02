@@ -1,9 +1,21 @@
-<mxfile host="app.diagrams.net" modified="2024-07-02T18:44:38.970Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36" version="24.6.4" etag="uFL0mwPq_n-4jsxA4xCK" type="github">
+<mxfile host="app.diagrams.net" modified="2024-07-02T18:47:28.490Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36" etag="yi5h4egJTaGbm7BriC7F" version="24.6.4" type="github">
   <diagram name="Страница — 1" id="7oZ65NxdlbvZb04vfeZl">
-    <mxGraphModel>
+    <mxGraphModel dx="954" dy="606" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="pyOGv6QkIyJ4NO9TdaGm-1" value="Продавец" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="150" y="200" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pyOGv6QkIyJ4NO9TdaGm-2" value="Клиент" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="150" y="330" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pyOGv6QkIyJ4NO9TdaGm-3" value="Курьер" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="150" y="460" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pyOGv6QkIyJ4NO9TdaGm-4" value="Администратор" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="170" y="570" width="30" height="60" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>

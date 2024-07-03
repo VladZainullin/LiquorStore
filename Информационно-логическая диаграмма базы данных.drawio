@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-07-03T19:21:47.343Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36" etag="TyUk9CUYE3B8JzWcEA6V" version="24.6.4" type="github">
+<mxfile host="app.diagrams.net" modified="2024-07-03T19:22:07.672Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36" etag="_90EIxkbIsot39E9dtw4" version="24.6.4" type="github">
   <diagram name="Страница — 1" id="W9IkOPkcE-70tv02vc99">
     <mxGraphModel dx="2417" dy="2179" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -33,7 +33,7 @@
           <mxGeometry y="26" width="160" height="30" as="geometry" />
         </mxCell>
         <mxCell id="TIuWhn0yAi8Gs-Zh3u9J-88" value="Товар в накладной" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;fontFamily=Helvetica;fontColor=default;labelBackgroundColor=default;" vertex="1" parent="TIuWhn0yAi8Gs-Zh3u9J-137">
-          <mxGeometry x="250" y="110" width="160" height="86" as="geometry" />
+          <mxGeometry x="250" y="147" width="160" height="86" as="geometry" />
         </mxCell>
         <mxCell id="TIuWhn0yAi8Gs-Zh3u9J-93" value="Закупочная цена за единицу" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=11;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontColor=default;labelBackgroundColor=default;" vertex="1" parent="TIuWhn0yAi8Gs-Zh3u9J-88">
           <mxGeometry y="26" width="160" height="30" as="geometry" />
@@ -45,7 +45,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="TIuWhn0yAi8Gs-Zh3u9J-97" value="Поставщик (не пользователь)" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;fontFamily=Helvetica;fontColor=default;labelBackgroundColor=default;" vertex="1" parent="TIuWhn0yAi8Gs-Zh3u9J-137">
-          <mxGeometry x="220" y="233" width="220" height="56" as="geometry" />
+          <mxGeometry x="220" y="33" width="220" height="56" as="geometry" />
         </mxCell>
         <mxCell id="TIuWhn0yAi8Gs-Zh3u9J-102" value="Наименование" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=11;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontColor=default;labelBackgroundColor=default;" vertex="1" parent="TIuWhn0yAi8Gs-Zh3u9J-97">
           <mxGeometry y="26" width="220" height="30" as="geometry" />

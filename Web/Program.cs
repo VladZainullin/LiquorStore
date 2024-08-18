@@ -17,10 +17,20 @@ file static class Program
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            builder.Services.AddHsts(options =>
+            {
+                options.Preload = true;
+                options.IncludeSubDomains = true;
+                options.MaxAge = TimeSpan.FromMinutes(30);
+            });
+
             builder.Host.UseSerilog((context, configuration) =>
                 configuration.ReadFrom.Configuration(context.Configuration));
 
             await using var app = builder.Build();
+
+            app.UseHsts();
+            app.UseHttpsRedirection();
 
             app.UseSerilogRequestLogging();
 

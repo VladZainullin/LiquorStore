@@ -2,7 +2,7 @@ using Domain.Entities.Brands.Parameters;
 
 // ReSharper disable UnusedAutoPropertyAccessor.Local
 
-namespace Domain.Entities.Brands;
+namespace Domain.Entities.Manufacturers;
 
 /// <summary>
 ///     Производитель

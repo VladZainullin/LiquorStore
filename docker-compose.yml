@@ -1,8 +1,35 @@
-﻿version: "3"
+﻿version: "3.9"
+
+name: "store"
 
 services:
   api:
     image: web
+    container_name: api
     build:
       context: .
       dockerfile: Web/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Production"
+    depends_on:
+      - database
+    networks:
+      - network
+      
+  database:
+    image: postgres:14.8-alpine3.18
+    container_name: database
+    environment:
+      POSTGRES_DB: "postgres"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "123456"
+    volumes:
+      - .\data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - network
+        
+networks:
+  network:
+    driver: bridge

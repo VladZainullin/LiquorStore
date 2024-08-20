@@ -24,15 +24,23 @@ file static class Program
                 options.MaxAge = TimeSpan.FromMinutes(30);
             });
 
+            builder.Services.AddHealthChecks();
+
             builder.Host.UseSerilog((context, configuration) =>
                 configuration.ReadFrom.Configuration(context.Configuration));
 
             await using var app = builder.Build();
 
-            app.UseHsts();
+            if (app.Environment.IsProduction())
+            {
+                app.UseHsts();
+            }
+
             app.UseHttpsRedirection();
 
             app.UseSerilogRequestLogging();
+
+            app.UseHealthChecks("/health");
 
             await app.RunAsync();
         }

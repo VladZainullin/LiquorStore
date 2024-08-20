@@ -1,5 +1,6 @@
-using Domain.Entities.Brands.Parameters;
+using Domain.Entities.Manufacturers.Parameters;
 
+// ReSharper disable FieldCanBeMadeReadOnly.Local
 // ReSharper disable UnusedAutoPropertyAccessor.Local
 
 namespace Domain.Entities.Manufacturers;
@@ -10,6 +11,11 @@ namespace Domain.Entities.Manufacturers;
 public sealed class Manufacturer
 {
     /// <summary>
+    ///     Уникальный идентификатор производителя
+    /// </summary>
+    private Guid _id = default!;
+    
+    /// <summary>
     ///     Наименование производителя
     /// </summary>
     private string _title = default!;
@@ -18,15 +24,18 @@ public sealed class Manufacturer
     {
     }
 
-    public Manufacturer(CreateBrandParameters parameters) : this()
+    public Manufacturer(CreateManufacturerParameters parameters) : this()
     {
-        Title = parameters.Title;
+        SetTitle(new SetManufacturerTitleParameters
+        {
+            Title = parameters.Title
+        });
     }
 
     /// <summary>
     ///     Уникальный идентификатор производителя
     /// </summary>
-    public Guid Id { get; private set; }
+    public Guid Id => _id;
 
     /// <summary>
     ///     Наименование производителя
@@ -34,20 +43,13 @@ public sealed class Manufacturer
     /// <exception cref="ArgumentOutOfRangeException">
     ///     Некоректно указано наименование производителя
     /// </exception>
-    public string Title
-    {
-        get => _title;
-        private set
-        {
-            if (string.IsNullOrWhiteSpace(value) && string.IsNullOrEmpty(value))
-                throw new ArgumentOutOfRangeException(value, "Некоректное наименование производителя");
+    public string Title => _title;
 
-            _title = value.Trim();
-        }
-    }
-
-    public void SetTitle(SetTitleParameters parameters)
+    public void SetTitle(SetManufacturerTitleParameters parameters)
     {
-        Title = parameters.Title;
+        if (string.IsNullOrWhiteSpace(parameters.Title) && string.IsNullOrEmpty(parameters.Title))
+            throw new ArgumentOutOfRangeException(parameters.Title, "Некоректное наименование производителя");
+
+        _title = parameters.Title.Trim();
     }
 }

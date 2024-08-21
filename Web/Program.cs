@@ -42,6 +42,11 @@ file static class Program
 
             app.UseHealthChecks("/health");
 
+            app.MapGet("test", async hc =>
+            {
+                await hc.Response.WriteAsync("hello");
+            });
+
             await app.RunAsync();
         }
         catch (HostAbortedException)

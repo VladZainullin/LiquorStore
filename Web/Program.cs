@@ -1,3 +1,5 @@
+using Application;
+using Persistence;
 using Serilog;
 using Serilog.Exceptions;
 
@@ -26,13 +28,14 @@ file static class Program
         try
         {
             var builder = WebApplication.CreateBuilder(args);
-            
-            builder.Services.AddHealthChecks();
 
             builder.Host.UseSerilog((context, configuration) =>
-            {
-                configuration.ReadFrom.Configuration(context.Configuration);
-            });
+                configuration.ReadFrom.Configuration(context.Configuration));
+
+            builder.Services
+                .AddPersistenceServices()
+                .AddApplicationServices()
+                .AddWebServices();
 
             await using var app = builder.Build();
 

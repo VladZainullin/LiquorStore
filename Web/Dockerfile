@@ -1,15 +1,13 @@
 ﻿FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
-USER $APP_UID
 WORKDIR /app
 EXPOSE 8080
 
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
-COPY ["Web/Web.csproj", "Web/"]
-RUN dotnet restore "Web/Web.csproj"
 COPY . .
+RUN dotnet restore "Web/Web.csproj"
 WORKDIR "/src/Web"
-RUN dotnet build "Web.csproj" -c Release -o /app/build
+RUN dotnet build "Web.csproj" -c Release -o app/build --no-restore
 
 FROM build AS publish
 RUN dotnet publish "Web.csproj" -c Release -o /app/publish /p:UseAppHost=false

@@ -8,14 +8,14 @@ file static class Program
     {
         Log.Logger = new LoggerConfiguration()
             .WriteTo.Console()
-            .WriteTo.File("Logs/log-.txt",
+            .WriteTo.File("Logs/Log-.txt",
                 rollingInterval: RollingInterval.Hour,
                 rollOnFileSizeLimit: true)
             .CreateLogger();
 
         try
         {
-            var builder = WebApplication.CreateBuilder(args);
+            var builder = WebApplication.CreateSlimBuilder(args);
 
             builder.Services.AddHsts(options =>
             {
@@ -42,11 +42,6 @@ file static class Program
 
             app.UseHealthChecks("/health");
 
-            app.MapGet("test", async hc =>
-            {
-                await hc.Response.WriteAsync("hello");
-            });
-
             await app.RunAsync();
         }
         catch (HostAbortedException)
@@ -54,7 +49,7 @@ file static class Program
         }
         catch (Exception e)
         {
-            Log.Fatal($"Application not started. {e}");
+            Log.Fatal("Application not started. {error}", e);
         }
         finally
         {

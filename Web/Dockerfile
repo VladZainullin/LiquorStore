@@ -4,13 +4,20 @@ EXPOSE 8080
 
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
+COPY "Domain/Domain.csproj" "Domain/"
+COPY "Persistence/Persistence.csproj" "Persistence/"
+COPY "Persistence.Contracts/Persistence.Contracts.csproj" "Persistence.Contracts/"
+COPY "Application/Application.csproj" "Application/"
+COPY "Application.Contracts/Application.Contracts.csproj" "Application.Contracts/"
+COPY "Web/Web.csproj" "Web/"
+WORKDIR /src/Web
+RUN dotnet restore "Web.csproj"
+WORKDIR /src
 COPY . .
-RUN dotnet restore "Web/Web.csproj"
-WORKDIR "/src/Web"
-RUN dotnet build "Web.csproj" -c Release -o app/build --no-restore
+RUN dotnet build "Web/Web.csproj" -c Release -o app/build --no-restore
 
 FROM build AS publish
-RUN dotnet publish "Web.csproj" -c Release -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "Web/Web.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app

@@ -8,7 +8,7 @@ public interface IDbSet<in T>
 
     void Add(T entity);
 
-    void AddRange(IEnumerable<T> entity);
+    void AddRange(IEnumerable<T> entities);
 
     void Remove(T entity);
 

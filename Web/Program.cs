@@ -38,12 +38,14 @@ file static class Program
                 .AddWebServices();
 
             await using var app = builder.Build();
-
+            
             app.UseHttpsRedirection();
 
             app.UseSerilogRequestLogging();
 
             app.UseHealthChecks("/health");
+
+            app.MapControllers();
 
             await app.RunAsync();
         }

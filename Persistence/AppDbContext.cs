@@ -1,3 +1,4 @@
+using System.Reflection;
 using Domain.Entities.Countries;
 using Domain.Entities.Manufacturers;
 using Microsoft.EntityFrameworkCore;
@@ -11,4 +12,11 @@ internal sealed class AppDbContext(DbContextOptions<AppDbContext> options) : DbC
     public DbSet<Country> Countries => Set<Country>();
 
     public DbSet<Manufacturer> Manufacturer => Set<Manufacturer>();
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+        
+        base.OnModelCreating(modelBuilder);
+    }
 }

@@ -1,5 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Persistence.Contracts;
@@ -17,11 +16,7 @@ public static class DependencyInjection
                 .GetSection("DATABASE_CONNECTION")
                 .Get<string>();
 
-            options.UseNpgsql(connectionString, static o =>
-            {
-                o.CommandTimeout(10_000);
-                o.MigrationsAssembly(HistoryRepository.DefaultTableName);
-            });
+            options.UseNpgsql(connectionString);
         });
 
         services.AddScoped<DbContext>(sp => sp.GetRequiredService<AppDbContext>());

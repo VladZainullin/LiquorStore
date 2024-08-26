@@ -16,7 +16,9 @@ public static class DependencyInjection
                 .GetSection("DATABASE_CONNECTION")
                 .Get<string>();
 
-            options.UseNpgsql(connectionString);
+            options
+                .UseSnakeCaseNamingConvention()
+                .UseNpgsql(connectionString);
         });
 
         services.AddScoped<DbContext>(sp => sp.GetRequiredService<AppDbContext>());

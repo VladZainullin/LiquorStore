@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
 using Persistence.Contracts;
 
@@ -35,5 +37,23 @@ internal sealed class DbSetAdapter<T>(DbContext context) : IDbSet<T> where T : c
     public void RemoveRange(IEnumerable<T> entities)
     {
         _set.RemoveRange(entities);
+    }
+
+    public IEnumerator<T> GetEnumerator()
+    {
+        return ((IQueryable<T>)_set).GetEnumerator();
+    }
+
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+        return GetEnumerator();
+    }
+
+    public Type ElementType => ((IQueryable<T>)_set).ElementType;
+    public Expression Expression => ((IQueryable<T>)_set).Expression;
+    public IQueryProvider Provider => ((IQueryable<T>)_set).Provider;
+    public IAsyncEnumerator<T> GetAsyncEnumerator(CancellationToken cancellationToken = new CancellationToken())
+    {
+        return ((IAsyncEnumerable<T>)_set).GetAsyncEnumerator(cancellationToken);
     }
 }

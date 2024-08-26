@@ -1,3 +1,4 @@
+using Domain.Entities.Countries.Exceptions;
 using Domain.Entities.Countries.Parameters;
 using Domain.Entities.Manufacturers.Parameters;
 
@@ -49,7 +50,7 @@ public sealed class Country
     private void SetTitle(SetManufacturerTitleParameters parameters)
     {
         if (string.IsNullOrWhiteSpace(parameters.Title) && string.IsNullOrEmpty(parameters.Title))
-            throw new ArgumentOutOfRangeException(parameters.Title, "Некоректное наименование страны");
+            throw new CountryTitleIsEmptyOrNullException(parameters.Title);
 
         _title = parameters.Title.Trim();
     }

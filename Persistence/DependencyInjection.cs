@@ -9,7 +9,7 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddPersistenceServices(this IServiceCollection services)
     {
-        services.AddDbContextPool<AppDbContext>(static (sp, options) =>
+        services.AddPooledDbContextFactory<AppDbContext>(static (sp, options) =>
         {
             var connectionString = sp
                 .GetRequiredService<IConfiguration>()

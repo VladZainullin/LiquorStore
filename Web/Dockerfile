@@ -4,12 +4,14 @@ EXPOSE 8080
 
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
-COPY "Domain/Domain.csproj" "Domain/"
-COPY "Persistence/Persistence.csproj" "Persistence/"
-COPY "Persistence.Contracts/Persistence.Contracts.csproj" "Persistence.Contracts/"
-COPY "Application/Application.csproj" "Application/"
-COPY "Application.Contracts/Application.Contracts.csproj" "Application.Contracts/"
-COPY "Web/Web.csproj" "Web/"
+COPY Directory.Build.props ./
+COPY Directory.Packages.props ./
+COPY Domain/Domain.csproj Domain/
+COPY Persistence/Persistence.csproj Persistence/
+COPY Persistence.Contracts/Persistence.Contracts.csproj Persistence.Contracts/
+COPY Application/Application.csproj Application/
+COPY Application.Contracts/Application.Contracts.csproj Application.Contracts/
+COPY Web/Web.csproj Web/
 WORKDIR /src/Web
 RUN dotnet restore "Web.csproj"
 WORKDIR /src

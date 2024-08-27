@@ -4,6 +4,7 @@ EXPOSE 8080
 
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
+COPY NuGet.config ./
 COPY Directory.Build.props ./
 COPY Directory.Packages.props ./
 COPY Domain/Domain.csproj Domain/

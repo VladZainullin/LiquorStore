@@ -1,4 +1,5 @@
 using Domain.Entities.Countries;
+using Domain.Entities.Tags;
 using Microsoft.EntityFrameworkCore;
 using Persistence.Contracts;
 
@@ -11,6 +12,7 @@ internal sealed class AppDbContextAdapter(DbContext context) :
 {
     public IDbSet<Country> Countries { get; } = new DbSetAdapter<Country>(context);
     public IDbSet<Country> Manufacturer { get; } = new DbSetAdapter<Country>(context);
+    public IDbSet<Tag> Tags { get; } = new DbSetAdapter<Tag>(context);
 
     public Task SaveChangesAsync(CancellationToken cancellationToken)
     {

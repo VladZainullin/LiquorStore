@@ -45,7 +45,9 @@ file static class Program
 
             app.UseHealthChecks("/health");
 
-            app.MapControllers();
+            app.MapGraphQL();
+            
+            //app.MapControllers();
 
             await app.RunAsync();
         }

@@ -22,7 +22,7 @@ public sealed class CountryController : AppController
         [FromRoute] GetCountryRequestRouteDto routeDto,
         CancellationToken cancellationToken)
     {
-        var country = await Sender.Send(new GetCountryCommand(routeDto), cancellationToken);
+        var country = await Sender.Send(new GetCountryQuery(routeDto), cancellationToken);
         return Ok(country);
     }
     

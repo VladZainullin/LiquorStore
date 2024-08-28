@@ -1,6 +1,6 @@
 using Domain.Entities.Countries;
+using Domain.Entities.Manufacturers;
 using Persistence.Contracts;
-using Tag = Domain.Entities.Tags.Tag;
 
 namespace Web;
 
@@ -13,17 +13,24 @@ public static class DependencyInjection
 
         services
             .AddGraphQLServer()
-            .AddQueryType<Queries>();
-        
+            
+            .ConfigureSchema(schemaBuilder =>
+            {
+                schemaBuilder.SetSchema(schemaTypeDescriptor => { schemaTypeDescriptor.Name("Countries"); });
+
+                schemaBuilder.AddQueryType<Queries>();
+                schemaBuilder
+                    .AddProjections()
+                    .AddFiltering();
+            });
+
         return services;
     }
 }
 
-public class Queries
+public sealed class Queries
 {
-    public IQueryable<Tag> GetTags([Service] IDbContext context) => 
-        context.Tags;
-
-    public IQueryable<Country> GetManufacturers([Service] IDbContext context) =>
-        context.Countries;
+    public IQueryable<Country> GetCountries([Service] IAppDbContext context) => context.Countries;
+    
+    public IQueryable<Manufacturer> GetManufacturers([Service] IAppDbContext context) => context.Manufacturer;
 }

@@ -22,10 +22,10 @@ public static class DependencyInjection
         });
 
         services.AddScoped<DbContext>(sp => sp.GetRequiredService<AppDbContext>());
-        services.AddScoped<AppDbContextAdapter>();
-        services.AddScoped<IDbContext>(sp => sp.GetRequiredService<AppDbContextAdapter>());
-        services.AddScoped<IMigrationContext>(sp => sp.GetRequiredService<AppDbContextAdapter>());
-        services.AddScoped<ITransactionContext>(sp => sp.GetRequiredService<AppDbContextAdapter>());
+        services.AddScoped<AppAppDbContextAdapter>();
+        services.AddScoped<IAppDbContext>(sp => sp.GetRequiredService<AppAppDbContextAdapter>());
+        services.AddScoped<IMigrationContext>(sp => sp.GetRequiredService<AppAppDbContextAdapter>());
+        services.AddScoped<ITransactionContext>(sp => sp.GetRequiredService<AppAppDbContextAdapter>());
 
         return services;
     }

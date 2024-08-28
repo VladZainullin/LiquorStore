@@ -1,15 +1,13 @@
 using Domain.Entities.Countries;
-using Domain.Entities.Tags;
+using Domain.Entities.Manufacturers;
 
 namespace Persistence.Contracts;
 
-public interface IDbContext
+public interface IAppDbContext
 {
     IDbSet<Country> Countries { get; }
     
-    IDbSet<Country> Manufacturer { get; }
-    
-    IDbSet<Tag> Tags { get; }
-    
+    IDbSet<Manufacturer> Manufacturer { get; }
+
     Task SaveChangesAsync(CancellationToken cancellationToken);
 }

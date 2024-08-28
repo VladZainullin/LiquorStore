@@ -1,18 +1,17 @@
 using Domain.Entities.Countries;
-using Domain.Entities.Tags;
+using Domain.Entities.Manufacturers;
 using Microsoft.EntityFrameworkCore;
 using Persistence.Contracts;
 
 namespace Persistence;
 
-internal sealed class AppDbContextAdapter(DbContext context) : 
-    IDbContext,
+internal sealed class AppAppDbContextAdapter(DbContext context) : 
+    IAppDbContext,
     IMigrationContext,
     ITransactionContext
 {
     public IDbSet<Country> Countries { get; } = new DbSetAdapter<Country>(context);
-    public IDbSet<Country> Manufacturer { get; } = new DbSetAdapter<Country>(context);
-    public IDbSet<Tag> Tags { get; } = new DbSetAdapter<Tag>(context);
+    public IDbSet<Manufacturer> Manufacturer { get; } = new DbSetAdapter<Manufacturer>(context);
 
     public Task SaveChangesAsync(CancellationToken cancellationToken)
     {

@@ -45,10 +45,6 @@ file static class Program
 
             app.UseHealthChecks("/health");
 
-            app.MapGraphQL();
-            
-            //app.MapControllers();
-
             await app.RunAsync();
         }
         catch (HostAbortedException)

@@ -6,10 +6,10 @@ using Persistence.Contracts;
 namespace Application.Features.Products.Countries.Queries.GetCountry;
 
 file sealed class GetCountryHandler(IAppDbContext context) : 
-    IRequestHandler<GetCountryCommand, GetCountryResponseDto>
+    IRequestHandler<GetCountryQuery, GetCountryResponseDto>
 {
     public Task<GetCountryResponseDto> Handle(
-        GetCountryCommand request,
+        GetCountryQuery request,
         CancellationToken cancellationToken)
     {
         return context.Countries

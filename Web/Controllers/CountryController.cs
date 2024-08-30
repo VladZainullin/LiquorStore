@@ -2,6 +2,8 @@ using Application.Contracts.Features.Products.Countries.Commands.CreateCountry;
 using Application.Contracts.Features.Products.Countries.Commands.DeleteCountries;
 using Application.Contracts.Features.Products.Countries.Commands.DeleteCountry;
 using Application.Contracts.Features.Products.Countries.Commands.UpdateCountry;
+using Application.Contracts.Features.Products.Countries.Queries.GetCountries;
+using Application.Contracts.Features.Products.Countries.Queries.GetCountry;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Web.Controllers;
@@ -9,6 +11,22 @@ namespace Web.Controllers;
 [Route("api/countries")]
 public sealed class CountryController : AppController
 {
+    [HttpGet("{countryId:guid}")]
+    public async Task<ActionResult<GetCountryResponseDto>> GetCountryAsync(
+        [FromRoute] GetCountryRequestRouteDto routeDto,
+        CancellationToken cancellationToken)
+    {
+        return Ok(await Sender.Send(new GetCountryQuery(routeDto), cancellationToken));
+    }
+    
+    [HttpGet]
+    public async Task<ActionResult<GetCountryResponseDto>> GetCountriesAsync(
+        [FromQuery] GetCountriesRequestQueryDto routeDto,
+        CancellationToken cancellationToken)
+    {
+        return Ok(await Sender.Send(new GetCountriesQuery(routeDto), cancellationToken));
+    }
+    
     [HttpPost]
     public async Task<ActionResult<CreateCountryResponseDto>> CreateCountryAsync(
         [FromBody] CreateCountryRequestBodyDto bodyDto,

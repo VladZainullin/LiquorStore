@@ -5,6 +5,7 @@ namespace Domain.Entities.Products.Categories;
 public sealed class Category
 {
     private string _title = default!;
+    private Category? _parent;
     
     private Category()
     {
@@ -25,5 +26,12 @@ public sealed class Category
     private void SetTitle(SetCategoryTitleParameters parameters)
     {
         _title = parameters.Title;
+    }
+    
+    public Category? Parent => _parent;
+
+    private void SetParent(SetParentCategoryParameters parameters)
+    {
+        _parent = parameters.Category;
     }
 }

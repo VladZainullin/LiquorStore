@@ -47,6 +47,8 @@ file static class Program
 
             app.UseHealthChecks("/health");
 
+            app.MapControllers();
+
             await app.RunAsync();
         }
         catch (HostAbortedException)

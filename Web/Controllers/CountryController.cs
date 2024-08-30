@@ -1,4 +1,5 @@
 using Application.Contracts.Features.Products.Countries.Commands.CreateCountry;
+using Application.Contracts.Features.Products.Countries.Commands.DeleteCountries;
 using Application.Contracts.Features.Products.Countries.Commands.DeleteCountry;
 using Microsoft.AspNetCore.Mvc;
 
@@ -23,6 +24,16 @@ public sealed class CountryController : AppController
         CancellationToken cancellationToken)
     {
         await Sender.Send(new DeleteCountryCommand(routeDto), cancellationToken);
+
+        return NoContent();
+    }
+    
+    [HttpDelete]
+    public async Task<NoContentResult> DeleteCountriesAsync(
+        [FromRoute] DeleteCountriesRequestBodyDto bodyDto,
+        CancellationToken cancellationToken)
+    {
+        await Sender.Send(new DeleteCountriesCommand(bodyDto), cancellationToken);
 
         return NoContent();
     }

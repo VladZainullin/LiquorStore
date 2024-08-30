@@ -64,9 +64,6 @@ public sealed class Manufacturer
 
     public void SetTitle(SetManufacturerTitleParameters parameters)
     {
-        if (string.IsNullOrWhiteSpace(parameters.Title) && string.IsNullOrEmpty(parameters.Title))
-            throw new ArgumentOutOfRangeException(parameters.Title, "Некоректное наименование производителя");
-
         _title = parameters.Title.Trim();
     }
 

@@ -23,12 +23,12 @@ public sealed class Product
 
     public void SetTitle(SetProductTitleParameters parameters)
     {
-        _title = parameters.Description;
+        _title = parameters.Title;
     }
 
     public string Description => _description;
     
-    public void SetDescription(SetProductTitleParameters parameters)
+    public void SetDescription(SetProductDescriptionParameters parameters)
     {
         _description = parameters.Description;
     }

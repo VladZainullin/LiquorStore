@@ -1,6 +1,7 @@
-﻿namespace Domain.Entities.Products.Products.Parameters;
+﻿// ReSharper disable UnusedAutoPropertyAccessor.Global
+namespace Domain.Entities.Products.Products.Parameters;
 
 public sealed class SetProductTitleParameters
 {
-    public required string Description { get; init; }
+    public required string Title { get; init; }
 }

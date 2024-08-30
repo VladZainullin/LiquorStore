@@ -21,11 +21,6 @@ public sealed class Country
     /// </summary>
     private string _title = default!;
 
-    /// <summary>
-    ///     Производители страны
-    /// </summary>
-    private readonly List<Manufacturer> _manufacturers = [];
-
     private Country()
     {
     }
@@ -54,15 +49,5 @@ public sealed class Country
     public void SetTitle(SetCountryTitleParameters parameters)
     {
         _title = parameters.Title.Trim();
-    }
-
-    /// <summary>
-    ///     Производители страны
-    /// </summary>
-    public IReadOnlyCollection<Manufacturer> Manufacturers => _manufacturers.AsReadOnly();
-    
-    public void AddManufacturers(AddManufacturersParameters parameters)
-    {
-        _manufacturers.AddRange(parameters.Manufacturers);
     }
 }

@@ -51,7 +51,7 @@ public sealed class Country
     /// </exception>
     public string Title => _title;
     
-    private void SetTitle(SetCountryTitleParameters parameters)
+    public void SetTitle(SetCountryTitleParameters parameters)
     {
         _title = parameters.Title.Trim();
     }

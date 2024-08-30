@@ -1,6 +1,7 @@
 using Application.Contracts.Features.Products.Countries.Commands.CreateCountry;
 using Application.Contracts.Features.Products.Countries.Commands.DeleteCountries;
 using Application.Contracts.Features.Products.Countries.Commands.DeleteCountry;
+using Application.Contracts.Features.Products.Countries.Commands.UpdateCountry;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Web.Controllers;
@@ -16,6 +17,17 @@ public sealed class CountryController : AppController
         var response = await Sender.Send(new CreateCountryCommand(bodyDto), cancellationToken);
 
         return StatusCode(StatusCodes.Status201Created, response);
+    }
+
+    [HttpPut]
+    public async Task<NoContentResult> UpdateCountryAsync(
+        [FromRoute] UpdateCountryRequestRouteDto routeDto,
+        [FromBody] UpdateCountryRequestBodyDto bodyDto,
+        CancellationToken cancellationToken)
+    {
+        await Sender.Send(new UpdateCountryCommand(routeDto, bodyDto), cancellationToken);
+
+        return NoContent();
     }
 
     [HttpDelete("{countryId:guid}")]

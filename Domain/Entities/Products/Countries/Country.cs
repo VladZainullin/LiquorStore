@@ -1,5 +1,6 @@
 using Domain.Entities.Products.Countries.Exceptions;
 using Domain.Entities.Products.Countries.Parameters;
+using Domain.Entities.Products.Manufacturers;
 using Domain.Entities.Products.Manufacturers.Parameters;
 
 // ReSharper disable UnusedAutoPropertyAccessor.Local
@@ -21,6 +22,11 @@ public sealed class Country
     ///     Наименование страны
     /// </summary>
     private string _title = default!;
+
+    /// <summary>
+    ///     Производители страны
+    /// </summary>
+    private readonly List<Manufacturer> _manufacturers = [];
 
     private Country()
     {
@@ -53,5 +59,15 @@ public sealed class Country
             throw new CountryTitleIsEmptyOrNullException(parameters.Title);
 
         _title = parameters.Title.Trim();
+    }
+
+    /// <summary>
+    ///     Производители страны
+    /// </summary>
+    public IReadOnlyCollection<Manufacturer> Manufacturers => _manufacturers.AsReadOnly();
+    
+    public void AddManufacturers(AddManufacturersParameters parameters)
+    {
+        _manufacturers.AddRange(parameters.Manufacturers);
     }
 }

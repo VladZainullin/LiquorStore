@@ -1,7 +1,9 @@
-using Domain.Entities.Products.Manufacturers.Parameters;
-
+// ReSharper disable ConvertToAutoProperty
+// ReSharper disable ConvertToAutoPropertyWithPrivateSetter
 // ReSharper disable FieldCanBeMadeReadOnly.Local
 // ReSharper disable UnusedAutoPropertyAccessor.Local
+using Domain.Entities.Products.Countries;
+using Domain.Entities.Products.Manufacturers.Parameters;
 
 namespace Domain.Entities.Products.Manufacturers;
 
@@ -19,6 +21,11 @@ public sealed class Manufacturer
     ///     Наименование производителя
     /// </summary>
     private string _title = default!;
+
+    /// <summary>
+    ///     Страна производителя
+    /// </summary>
+    private Country _country = default!;
 
     private Manufacturer()
     {
@@ -51,5 +58,15 @@ public sealed class Manufacturer
             throw new ArgumentOutOfRangeException(parameters.Title, "Некоректное наименование производителя");
 
         _title = parameters.Title.Trim();
+    }
+
+    /// <summary>
+    ///     Страна производителя
+    /// </summary>
+    public Country Country => _country;
+
+    public void SetCountry(SetManufacturerCountryParameters parameters)
+    {
+        _country = parameters.Country;
     }
 }

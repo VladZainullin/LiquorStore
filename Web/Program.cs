@@ -1,4 +1,5 @@
 using Application;
+using Domain;
 using Persistence;
 using Serilog;
 using Serilog.Exceptions;
@@ -33,6 +34,7 @@ file static class Program
                 configuration.ReadFrom.Configuration(context.Configuration));
 
             builder.Services
+                .AddDomainServices()
                 .AddPersistenceServices()
                 .AddApplicationServices()
                 .AddWebServices();

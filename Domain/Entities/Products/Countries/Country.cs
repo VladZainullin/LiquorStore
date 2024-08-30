@@ -1,10 +1,9 @@
+// ReSharper disable ConvertToAutoPropertyWithPrivateSetter
+// ReSharper disable UnusedAutoPropertyAccessor.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Local
 using Domain.Entities.Products.Countries.Exceptions;
 using Domain.Entities.Products.Countries.Parameters;
 using Domain.Entities.Products.Manufacturers;
-using Domain.Entities.Products.Manufacturers.Parameters;
-
-// ReSharper disable UnusedAutoPropertyAccessor.Local
-// ReSharper disable FieldCanBeMadeReadOnly.Local
 
 namespace Domain.Entities.Products.Countries;
 
@@ -34,7 +33,7 @@ public sealed class Country
 
     public Country(CreateCountryParameters parameters) : this()
     {
-        SetTitle(new SetManufacturerTitleParameters
+        SetTitle(new SetCountryTitleParameters
         {
             Title = parameters.Title
         });
@@ -53,7 +52,7 @@ public sealed class Country
     /// </exception>
     public string Title => _title;
     
-    private void SetTitle(SetManufacturerTitleParameters parameters)
+    private void SetTitle(SetCountryTitleParameters parameters)
     {
         if (string.IsNullOrWhiteSpace(parameters.Title) && string.IsNullOrEmpty(parameters.Title))
             throw new CountryTitleIsEmptyOrNullException(parameters.Title);

@@ -19,6 +19,8 @@ public sealed class TypeOfMeasurement
             Title = parameters.Title
         });
     }
+    
+    public Guid Id { get; private set; } = Guid.NewGuid();
 
     public string Title => _title;
 

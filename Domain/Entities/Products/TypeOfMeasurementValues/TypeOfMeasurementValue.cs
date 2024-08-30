@@ -26,6 +26,8 @@ public sealed class TypeOfMeasurementValue
             TypeOfMeasurement = parameters.TypeOfMeasurement
         });
     }
+    
+    public Guid Id { get; private set; } = Guid.NewGuid();
 
     public string Value => _value;
 

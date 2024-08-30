@@ -19,6 +19,8 @@ public sealed class Product
         _description = parameters.Description;
     }
 
+    public Guid Id { get; private set; } = Guid.NewGuid();
+
     public string Title => _title;
 
     public void SetTitle(SetProductTitleParameters parameters)

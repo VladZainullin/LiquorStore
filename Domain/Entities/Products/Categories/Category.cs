@@ -17,6 +17,11 @@ public sealed class Category
         {
             Title = parameters.Title
         });
+        
+        SetParent(new SetParentCategoryParameters
+        {
+            Parent = parameters.Parent
+        });
     }
 
     public Guid Id { get; private set; } = Guid.NewGuid();
@@ -32,6 +37,6 @@ public sealed class Category
 
     private void SetParent(SetParentCategoryParameters parameters)
     {
-        _parent = parameters.Category;
+        _parent = parameters.Parent;
     }
 }

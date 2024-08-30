@@ -23,6 +23,11 @@ public sealed class Manufacturer
     private string _title = default!;
 
     /// <summary>
+    ///     Описание производителя
+    /// </summary>
+    private string _description = default!;
+
+    /// <summary>
     ///     Страна производителя
     /// </summary>
     private Country _country = default!;
@@ -36,6 +41,11 @@ public sealed class Manufacturer
         SetTitle(new SetManufacturerTitleParameters
         {
             Title = parameters.Title
+        });
+        
+        SetDescription(new SetManufacturerDescriptionParameters
+        {
+            Description = parameters.Description
         });
     }
 
@@ -58,6 +68,16 @@ public sealed class Manufacturer
             throw new ArgumentOutOfRangeException(parameters.Title, "Некоректное наименование производителя");
 
         _title = parameters.Title.Trim();
+    }
+
+    /// <summary>
+    ///     Описание производителя
+    /// </summary>
+    public string Description => _description;
+
+    public void SetDescription(SetManufacturerDescriptionParameters parameters)
+    {
+        _description = parameters.Description;
     }
 
     /// <summary>

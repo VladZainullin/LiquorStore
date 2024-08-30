@@ -1,9 +1,9 @@
-using Domain.Entities.Manufacturers.Parameters;
+using Domain.Entities.Products.Manufacturers.Parameters;
 
 // ReSharper disable FieldCanBeMadeReadOnly.Local
 // ReSharper disable UnusedAutoPropertyAccessor.Local
 
-namespace Domain.Entities.Manufacturers;
+namespace Domain.Entities.Products.Manufacturers;
 
 /// <summary>
 ///     Производитель

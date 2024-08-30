@@ -1,5 +1,5 @@
-using Domain.Entities.Countries;
-using Domain.Entities.Manufacturers;
+using Domain.Entities.Products.Countries;
+using Domain.Entities.Products.Manufacturers;
 using Microsoft.EntityFrameworkCore;
 using Persistence.Contracts;
 

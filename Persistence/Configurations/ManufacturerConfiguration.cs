@@ -1,4 +1,4 @@
-using Domain.Entities.Manufacturers;
+using Domain.Entities.Products.Manufacturers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

@@ -1,5 +1,5 @@
-using Domain.Entities.Countries;
-using Domain.Entities.Manufacturers;
+using Domain.Entities.Products.Countries;
+using Domain.Entities.Products.Manufacturers;
 
 namespace Persistence.Contracts;
 

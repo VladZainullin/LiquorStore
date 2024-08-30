@@ -1,4 +1,4 @@
-using Domain.Entities.Countries;
+using Domain.Entities.Products.Countries;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

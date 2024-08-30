@@ -1,5 +1,5 @@
 // ReSharper disable UnusedAutoPropertyAccessor.Global
-namespace Domain.Entities.Countries.Parameters;
+namespace Domain.Entities.Products.Countries.Parameters;
 
 public sealed class SetCountryTitleParameters
 {

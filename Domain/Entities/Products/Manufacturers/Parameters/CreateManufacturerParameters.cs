@@ -1,5 +1,5 @@
 // ReSharper disable UnusedAutoPropertyAccessor.Global
-namespace Domain.Entities.Manufacturers.Parameters;
+namespace Domain.Entities.Products.Manufacturers.Parameters;
 
 public sealed class CreateManufacturerParameters
 {

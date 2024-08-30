@@ -1,11 +1,11 @@
-using Domain.Entities.Countries.Exceptions;
-using Domain.Entities.Countries.Parameters;
-using Domain.Entities.Manufacturers.Parameters;
+using Domain.Entities.Products.Countries.Exceptions;
+using Domain.Entities.Products.Countries.Parameters;
+using Domain.Entities.Products.Manufacturers.Parameters;
 
 // ReSharper disable UnusedAutoPropertyAccessor.Local
 // ReSharper disable FieldCanBeMadeReadOnly.Local
 
-namespace Domain.Entities.Countries;
+namespace Domain.Entities.Products.Countries;
 
 /// <summary>
 ///     Страна

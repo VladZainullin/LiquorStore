@@ -1,4 +1,4 @@
-namespace Domain.Entities.Countries.Exceptions;
+namespace Domain.Entities.Products.Countries.Exceptions;
 
 public sealed class CountryTitleIsEmptyOrNullException(string name)
     : ArgumentOutOfRangeException(name, "Некоректное наименование страны");

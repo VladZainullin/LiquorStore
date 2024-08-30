@@ -1,6 +1,6 @@
 using System.Reflection;
-using Domain.Entities.Countries;
-using Domain.Entities.Manufacturers;
+using Domain.Entities.Products.Countries;
+using Domain.Entities.Products.Manufacturers;
 using Microsoft.EntityFrameworkCore;
 
 // ReSharper disable ReturnTypeCanBeEnumerable.Global

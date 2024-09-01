@@ -19,7 +19,7 @@ file sealed class GetCountriesHandler(IAppDbContext context) :
             .Select(static c => new GetCountriesResponseDto.CountryDto
             {
                 Id = c.Id,
-                Title = c.Title
+                Title = c.Title.Value
             })
             .ToListAsync(cancellationToken);
 

@@ -2,7 +2,7 @@
 // ReSharper disable UnusedAutoPropertyAccessor.Local
 // ReSharper disable FieldCanBeMadeReadOnly.Local
 using Domain.Entities.Products.Countries.Parameters;
-using Domain.Entities.Products.Manufacturers;
+using Domain.Entities.Products.Countries.ValueObjects.CountryTitles;
 
 namespace Domain.Entities.Products.Countries;
 
@@ -14,12 +14,12 @@ public sealed class Country
     /// <summary>
     ///     Уникальный идентификатор страны
     /// </summary>
-    private Guid _id = default!;
+    private Guid _id = Guid.NewGuid();
     
     /// <summary>
     ///     Наименование страны
     /// </summary>
-    private string _title = default!;
+    private CountryTitle _title;
 
     private Country()
     {
@@ -44,10 +44,10 @@ public sealed class Country
     /// <exception cref="ArgumentOutOfRangeException">
     ///     Некоректно указано наименование страны
     /// </exception>
-    public string Title => _title;
+    public CountryTitle Title => _title;
     
     public void SetTitle(SetCountryTitleParameters parameters)
     {
-        _title = parameters.Title.Trim();
+        _title = parameters.Title;
     }
 }

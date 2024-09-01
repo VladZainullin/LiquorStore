@@ -16,7 +16,7 @@ file sealed class GetCountryHandler(IAppDbContext context) :
             .Where(c => c.Id == request.RouteDto.CountryId)
             .Select(static c => new GetCountryResponseDto
             {
-                Title = c.Title
+                Title = c.Title.Value
             })
             .SingleAsync(cancellationToken);
     }

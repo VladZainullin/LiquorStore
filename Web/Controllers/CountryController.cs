@@ -37,7 +37,7 @@ public sealed class CountryController : AppController
         return StatusCode(StatusCodes.Status201Created, response);
     }
 
-    [HttpPut]
+    [HttpPut("{countryId:guid}")]
     public async Task<NoContentResult> UpdateCountryAsync(
         [FromRoute] UpdateCountryRequestRouteDto routeDto,
         [FromBody] UpdateCountryRequestBodyDto bodyDto,

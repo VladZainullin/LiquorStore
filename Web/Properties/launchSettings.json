@@ -8,7 +8,11 @@
       "applicationUrl": "https://localhost:5282",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "DATABASE_CONNECTION": "Host=localhost;Port=5432;Database=postgres;SearchPath=public;Username=postgres;Password=123456"
+        "DATABASE_CONNECTION": "Host=localhost;Port=5432;Database=postgres;SearchPath=public;Username=postgres;Password=123456",
+        "MinioOptions__AccessKey": "store",
+        "MinioOptions__SecretKey": "TYIkGFpnFTReu9wZzOtJ3Bh6JFiDRqSKfqyxSvkM",
+        "MinioOptions__Endpoint": "127.0.0.1:9000",
+        "MinioOptions__Ssl": "false"
       }
     }
   }

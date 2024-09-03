@@ -32,7 +32,7 @@ file static class Program
 
             builder.Host.UseSerilog((context, configuration) =>
                 configuration.ReadFrom.Configuration(context.Configuration));
-
+            
             builder.Services
                 .AddDomainServices()
                 .AddPersistenceServices()
@@ -40,7 +40,7 @@ file static class Program
                 .AddWebServices();
 
             await using var app = builder.Build();
-            
+
             app.UseHttpsRedirection();
 
             app.UseSerilogRequestLogging();

@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
+using Npgsql;
 using Persistence.Contracts;
 
 namespace Persistence;
@@ -9,16 +11,21 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddPersistenceServices(this IServiceCollection services)
     {
+        services.AddOptions<NpgsqlConnectionStringBuilder>().BindConfiguration("Postgres");
         services.AddDbContextPool<AppDbContext>(static (sp, options) =>
         {
-            var connectionString = sp
-                .GetRequiredService<IConfiguration>()
-                .GetSection("DATABASE_CONNECTION")
-                .Get<string>();
-
+            var npgsqlConnectionStringBuilderOptions = sp.GetRequiredService<IOptions<NpgsqlConnectionStringBuilder>>();
+            var npgsqlConnectionStringBuilder = npgsqlConnectionStringBuilderOptions.Value;
+            var connectionString = npgsqlConnectionStringBuilder.ConnectionString;
             options
                 .UseSnakeCaseNamingConvention()
-                .UseNpgsql(connectionString);
+                .UseNpgsql(connectionString, ob =>
+                {
+                    ob.MigrationsAssembly("Persistence");
+                    ob.MigrationsHistoryTable(
+                        HistoryRepository.DefaultTableName,
+                        npgsqlConnectionStringBuilder.SearchPath);
+                });
         });
 
         services.AddScoped<DbContext>(sp => sp.GetRequiredService<AppDbContext>());

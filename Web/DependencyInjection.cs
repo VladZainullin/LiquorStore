@@ -9,7 +9,7 @@ public static class DependencyInjection
     public static IServiceCollection AddWebServices(this IServiceCollection services)
     {
         services.AddHealthChecks();
-        services.AddOptions<MinioOptions>().BindConfiguration("MinioOptions");
+        services.AddOptions<MinioOptions>().BindConfiguration("Minio");
         services.AddMinio(s =>
         {
             var serviceProvider = services.BuildServiceProvider();

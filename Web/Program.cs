@@ -1,6 +1,7 @@
 using Application;
 using Domain;
 using Persistence;
+using Persistence.Contracts;
 using Serilog;
 using Serilog.Exceptions;
 
@@ -41,8 +42,12 @@ file static class Program
 
             await using var app = builder.Build();
 
+            var scope = app.Services.CreateAsyncScope();
+            var migrationContext = scope.ServiceProvider.GetRequiredService<IMigrationContext>();
+            await migrationContext.MigrateAsync();
+            
             app.UseHttpsRedirection();
-
+            
             app.UseSerilogRequestLogging();
 
             app.UseHealthChecks("/health");

@@ -3,8 +3,7 @@ using Domain;
 using Persistence;
 using Persistence.Contracts;
 using Serilog;
-using Serilog.Exceptions;
-using Serilog.Sinks.SystemConsole.Themes;
+
 
 namespace Web;
 
@@ -12,28 +11,20 @@ file static class Program
 {
     public static async Task Main(string[] args)
     {
-        Log.Logger = new LoggerConfiguration()
-            .Enrich.WithExceptionDetails()
-            .Enrich.FromLogContext()
-            .Enrich.WithEnvironmentName()
-            .Enrich.WithEnvironmentUserName()
-            .Enrich.WithMachineName()
-            .Enrich.WithThreadId()
-            .Enrich.WithThreadName()
-            .WriteTo.Console(theme: AnsiConsoleTheme.Code)
-            .WriteTo.File("Logs/Log-.txt",
-                rollingInterval: RollingInterval.Hour)
-            .WriteTo.Seq(
-                serverUrl: "http://localhost:5341")
-            .CreateBootstrapLogger();
+        var configuration = new ConfigurationBuilder()
+            .AddEnvironmentVariables()
+            .Build();
+
+        await using var logger = new LoggerConfiguration()
+            .ReadFrom.Configuration(configuration)
+            .CreateLogger();
 
         try
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            builder.Host.UseSerilog((context, configuration) =>
-                configuration.ReadFrom.Configuration(context.Configuration));
-            
+            builder.Host.UseSerilog(logger);
+
             builder.Services
                 .AddDomainServices()
                 .AddPersistenceServices()
@@ -45,9 +36,9 @@ file static class Program
             var scope = app.Services.CreateAsyncScope();
             var migrationContext = scope.ServiceProvider.GetRequiredService<IMigrationContext>();
             await migrationContext.MigrateAsync();
-            
+
             app.UseHttpsRedirection();
-            
+
             app.UseSerilogRequestLogging();
 
             app.UseHealthChecks("/health");
@@ -61,11 +52,7 @@ file static class Program
         }
         catch (Exception e)
         {
-            Log.Fatal("Application not started. {error}", e);
-        }
-        finally
-        {
-            await Log.CloseAndFlushAsync();
+            logger.Fatal("Application not started. {error}", e);
         }
     }
 }

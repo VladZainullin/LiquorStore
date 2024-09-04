@@ -4,6 +4,7 @@ using Persistence;
 using Persistence.Contracts;
 using Serilog;
 using Serilog.Exceptions;
+using Serilog.Sinks.SystemConsole.Themes;
 
 namespace Web;
 
@@ -19,10 +20,9 @@ file static class Program
             .Enrich.WithMachineName()
             .Enrich.WithThreadId()
             .Enrich.WithThreadName()
-            .WriteTo.Console()
+            .WriteTo.Console(theme: AnsiConsoleTheme.Code)
             .WriteTo.File("Logs/Log-.txt",
-                rollingInterval: RollingInterval.Hour,
-                rollOnFileSizeLimit: true)
+                rollingInterval: RollingInterval.Hour)
             .WriteTo.Seq(
                 serverUrl: "http://localhost:5341")
             .CreateBootstrapLogger();

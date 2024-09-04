@@ -2,6 +2,7 @@
 
     <ItemGroup>
       <PackageReference Include="MediatR.Contracts" />
+      <PackageReference Include="Serilog.Enrichers.AssemblyName" />
     </ItemGroup>
 
 </Project>

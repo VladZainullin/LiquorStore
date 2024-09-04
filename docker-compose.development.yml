@@ -66,6 +66,7 @@ services:
       Serilog__Using__2: "Serilog.Sinks.Seq"
       Serilog__Using__3: "Serilog.Exceptions"
       Serilog__Using__4: "Serilog.Enrichers.Environment"
+      Serilog__Using__5: "Serilog.Enrichers.AssemblyName"
       Serilog__MinimumLevel: "Debug"
       Serilog__WriteTo__0__Name: "Console"
       Serilog__WriteTo__0__Args__theme: "Serilog.Sinks.SystemConsole.Themes.AnsiConsoleTheme::Code, Serilog.Sinks.Console"
@@ -79,8 +80,7 @@ services:
       Serilog__Enrich__2: "WithEnvironmentName"
       Serilog__Enrich__3: "WithEnvironmentUserName"
       Serilog__Enrich__4: "WithMachineName"
-      Serilog__Enrich__5: "WithThreadId"
-      Serilog__Enrich__6: "WithThreadName"
+      Serilog__Enrich__5: "WithAssemblyName"
       Serilog__Properties__ApplicationName: "Store"
     ports:
       - "7171:8080"

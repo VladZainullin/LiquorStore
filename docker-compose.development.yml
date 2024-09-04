@@ -9,7 +9,7 @@ services:
       POSTGRES_USER: "postgres"
       POSTGRES_PASSWORD: "123456"
     volumes:
-      - .\data:/var/lib/postgresql/data
+      - database_data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
     networks:
@@ -24,7 +24,7 @@ services:
       - 8020:80
       - 5341:5341
     volumes:
-      - .\data:/var/lib/seq/data
+      - seq_data:/var/lib/seq/data
   
   minio:
     image: 'bitnami/minio:latest'
@@ -37,6 +37,8 @@ services:
       - MINIO_ROOT_PASSWORD=minio-root-password
     networks:
       - minio-api-bridge
+    volumes:
+      - minio_data:/var/lib/minio/data
   
   api:
     image: web
@@ -96,3 +98,9 @@ networks:
     driver: bridge
   database-api-bridge:
     driver: bridge
+    
+volumes:
+  database_data:
+  seq_data:
+  minio_data:
+  

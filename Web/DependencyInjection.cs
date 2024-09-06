@@ -33,22 +33,18 @@ public static class DependencyInjection
         ArgumentNullException.ThrowIfNull(services);
         ArgumentNullException.ThrowIfNull(configureClient);
 
-        var client = new MinioClient();
-        var propertyInfo = typeof(MinioConfig)
-            .GetProperty("ServiceProvider", BindingFlags.NonPublic | BindingFlags.Instance);
-
-        configureClient(client);
+        var configureMinioClient = CreateMinioClient(configureClient); 
         
         switch (lifetime)
         {
             case ServiceLifetime.Singleton:
-                services.TryAddSingleton(CreateMinioClientWithServiceProvider);
+                services.TryAddSingleton(configureMinioClient);
                 break;
             case ServiceLifetime.Scoped:
-                services.TryAddScoped(CreateMinioClientWithServiceProvider);
+                services.TryAddScoped(configureMinioClient);
                 break;
             case ServiceLifetime.Transient:
-                services.TryAddTransient(CreateMinioClientWithServiceProvider);
+                services.TryAddTransient(configureMinioClient);
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(lifetime), lifetime, null);
@@ -56,11 +52,20 @@ public static class DependencyInjection
 
         return services;
 
-        MinioClient CreateMinioClientWithServiceProvider(IServiceProvider serviceProvider)
+        static Func<IServiceProvider, IMinioClient> CreateMinioClient(Action<IMinioClient> configureClient)
         {
-            propertyInfo?.SetValue(client.Config, serviceProvider);
+            var client = new MinioClient();
+            configureClient(client);
 
-            return client;
+            return serviceProvider =>
+            {
+                var propertyInfo = typeof(MinioConfig)
+                    .GetProperty("ServiceProvider", BindingFlags.NonPublic | BindingFlags.Instance);
+
+                propertyInfo?.SetValue(client.Config, serviceProvider);
+
+                return client;
+            };
         }
     }
 }

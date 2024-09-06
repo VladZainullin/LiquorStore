@@ -6,7 +6,7 @@ using Persistence.Contracts;
 
 namespace Application.Features.Products.Countries.Commands.CreateCountry;
 
-file sealed class CreateCountryHandler(IAppDbContext context) : 
+file sealed class CreateCountryHandler(IDbContext context) : 
     IRequestHandler<CreateCountryCommand, CreateCountryResponseDto>
 {
     public async Task<CreateCountryResponseDto> Handle(

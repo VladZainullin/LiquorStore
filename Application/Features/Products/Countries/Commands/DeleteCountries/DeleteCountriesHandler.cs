@@ -6,7 +6,7 @@ using Persistence.Contracts;
 
 namespace Application.Features.Products.Countries.Commands.DeleteCountries;
 
-file sealed class DeleteCountriesHandler(IAppDbContext context) : 
+file sealed class DeleteCountriesHandler(IDbContext context) : 
     IRequestHandler<DeleteCountriesCommand>
 {
     public async Task Handle(DeleteCountriesCommand request, CancellationToken cancellationToken)

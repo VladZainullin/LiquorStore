@@ -7,7 +7,7 @@ using Persistence.Contracts;
 
 namespace Application.Features.Products.Countries.Commands.UpdateCountry;
 
-file sealed class UpdateCountryHandler(IAppDbContext context) : IRequestHandler<UpdateCountryCommand>
+file sealed class UpdateCountryHandler(IDbContext context) : IRequestHandler<UpdateCountryCommand>
 {
     public async Task Handle(UpdateCountryCommand request, CancellationToken cancellationToken)
     {

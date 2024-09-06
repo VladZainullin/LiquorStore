@@ -6,7 +6,7 @@ using Persistence.Contracts;
 
 namespace Application.Features.Products.Countries.Queries.GetCountries;
 
-file sealed class GetCountriesHandler(IAppDbContext context) : 
+file sealed class GetCountriesHandler(IDbContext context) : 
     IRequestHandler<GetCountriesQuery, GetCountriesResponseDto>
 {
     public async Task<GetCountriesResponseDto> Handle(

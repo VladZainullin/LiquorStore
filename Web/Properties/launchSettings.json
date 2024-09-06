@@ -14,7 +14,7 @@
         "Postgres__Username": "postgres",
         "Postgres__Password": "123456",
         "Postgres__SearchPath": "public",
-        "Postgres_Database": "postgres",
+        "Postgres__Database": "postgres",
         
         "Minio__AccessKey": "store",
         "Minio__SecretKey": "TYIkGFpnFTReu9wZzOtJ3Bh6JFiDRqSKfqyxSvkM",

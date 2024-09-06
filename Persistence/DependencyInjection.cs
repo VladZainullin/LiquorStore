@@ -12,7 +12,7 @@ public static class DependencyInjection
     public static IServiceCollection AddPersistenceServices(this IServiceCollection services)
     {
         services.AddOptions<NpgsqlConnectionStringBuilder>().BindConfiguration("Postgres");
-        services.AddDbContextPool<AppDbContext>(static (sp, options) =>
+        services.AddDbContextPool<AppDbContext>((sp, options) =>
         {
             var npgsqlConnectionStringBuilderOptions = sp.GetRequiredService<IOptions<NpgsqlConnectionStringBuilder>>();
             var npgsqlConnectionStringBuilder = npgsqlConnectionStringBuilderOptions.Value;

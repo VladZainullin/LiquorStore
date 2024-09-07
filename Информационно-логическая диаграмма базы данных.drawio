@@ -155,6 +155,12 @@
         <mxCell id="VgQCesWckuyEMALxXEr0-89" style="edgeStyle=orthogonalEdgeStyle;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=ERoneToMany;endFill=0;" edge="1" parent="1" source="VgQCesWckuyEMALxXEr0-84" target="VgQCesWckuyEMALxXEr0-84">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
+        <mxCell id="VgQCesWckuyEMALxXEr0-90" value="Фильтр категории" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;fontFamily=Helvetica;fontColor=default;labelBackgroundColor=default;" vertex="1" parent="1">
+          <mxGeometry x="-806" y="465" width="160" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="VgQCesWckuyEMALxXEr0-94" value="Фильтр" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;fontFamily=Helvetica;fontColor=default;labelBackgroundColor=default;" vertex="1" parent="1">
+          <mxGeometry x="-1056" y="489" width="160" height="56" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>

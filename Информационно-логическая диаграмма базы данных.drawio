@@ -153,10 +153,10 @@
           <mxGeometry y="26" width="160" height="30" as="geometry" />
         </mxCell>
         <mxCell id="VgQCesWckuyEMALxXEr0-90" value="Фильтр категории" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;fontFamily=Helvetica;fontColor=default;labelBackgroundColor=default;" vertex="1" parent="1">
-          <mxGeometry x="-806" y="465" width="160" height="56" as="geometry" />
+          <mxGeometry x="-770" y="465" width="160" height="56" as="geometry" />
         </mxCell>
         <mxCell id="VgQCesWckuyEMALxXEr0-94" value="Фильтр" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;fontFamily=Helvetica;fontColor=default;labelBackgroundColor=default;" vertex="1" parent="1">
-          <mxGeometry x="-1072" y="465" width="160" height="56" as="geometry" />
+          <mxGeometry x="-1048" y="465" width="160" height="56" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

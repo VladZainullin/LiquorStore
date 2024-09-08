@@ -65,7 +65,7 @@
         <mxCell id="TIuWhn0yAi8Gs-Zh3u9J-231" value="Экземпляр товар" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;fontFamily=Helvetica;fontColor=default;labelBackgroundColor=default;" parent="TIuWhn0yAi8Gs-Zh3u9J-138" vertex="1">
           <mxGeometry x="245" y="291" width="160" height="56" as="geometry" />
         </mxCell>
-        <mxCell id="VgQCesWckuyEMALxXEr0-98" value="Товар в категории" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;fontFamily=Helvetica;fontColor=default;labelBackgroundColor=default;" vertex="1" parent="TIuWhn0yAi8Gs-Zh3u9J-138">
+        <mxCell id="VgQCesWckuyEMALxXEr0-98" value="Товар в комбо" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;fontFamily=Helvetica;fontColor=default;labelBackgroundColor=default;" vertex="1" parent="TIuWhn0yAi8Gs-Zh3u9J-138">
           <mxGeometry x="520" y="82" width="160" height="56" as="geometry" />
         </mxCell>
       </root>

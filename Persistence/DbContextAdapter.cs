@@ -1,4 +1,3 @@
-using Domain.Entities.Products.Countries;
 using Microsoft.EntityFrameworkCore;
 using Persistence.Contracts;
 
@@ -9,7 +8,6 @@ internal sealed class DbContextAdapter(DbContext context) :
     IMigrationContext,
     ITransactionContext
 {
-    public IDbSet<Country> Countries { get; } = new DbSetAdapter<Country>(context);
 
     public Task SaveChangesAsync(CancellationToken cancellationToken)
     {

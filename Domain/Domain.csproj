@@ -3,4 +3,7 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
     <PackageReference Include="Serilog.Enrichers.AssemblyName" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Entities\Products\" />
+  </ItemGroup>
 </Project>

@@ -40,28 +40,6 @@
         <mxCell id="TIuWhn0yAi8Gs-Zh3u9J-13" value="Файлы товара" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" parent="TIuWhn0yAi8Gs-Zh3u9J-138" vertex="1">
           <mxGeometry x="23" y="162" width="177" height="56" as="geometry" />
         </mxCell>
-        <mxCell id="TIuWhn0yAi8Gs-Zh3u9J-215" style="edgeStyle=orthogonalEdgeStyle;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=ERoneToMany;endFill=0;" parent="TIuWhn0yAi8Gs-Zh3u9J-138" source="TIuWhn0yAi8Gs-Zh3u9J-210" target="TIuWhn0yAi8Gs-Zh3u9J-231" edge="1">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="583.5" y="319" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="TIuWhn0yAi8Gs-Zh3u9J-210" value="Значение типа измерения" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;fontFamily=Helvetica;fontColor=default;labelBackgroundColor=default;" parent="TIuWhn0yAi8Gs-Zh3u9J-138" vertex="1">
-          <mxGeometry x="459.5" y="291" width="242" height="56" as="geometry" />
-        </mxCell>
-        <mxCell id="TIuWhn0yAi8Gs-Zh3u9J-217" value="Значение" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=11;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontColor=default;labelBackgroundColor=default;" parent="TIuWhn0yAi8Gs-Zh3u9J-210" vertex="1">
-          <mxGeometry y="26" width="242" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="TIuWhn0yAi8Gs-Zh3u9J-214" style="edgeStyle=orthogonalEdgeStyle;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=ERoneToMany;endFill=0;" parent="TIuWhn0yAi8Gs-Zh3u9J-138" source="TIuWhn0yAi8Gs-Zh3u9J-144" target="TIuWhn0yAi8Gs-Zh3u9J-210" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="TIuWhn0yAi8Gs-Zh3u9J-144" value="Тип измерения" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;fontFamily=Helvetica;fontColor=default;labelBackgroundColor=default;" parent="TIuWhn0yAi8Gs-Zh3u9J-138" vertex="1">
-          <mxGeometry x="500.5" y="396" width="160" height="56" as="geometry" />
-        </mxCell>
-        <mxCell id="TIuWhn0yAi8Gs-Zh3u9J-216" value="Наименование" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=11;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontColor=default;labelBackgroundColor=default;" parent="TIuWhn0yAi8Gs-Zh3u9J-144" vertex="1">
-          <mxGeometry y="26" width="160" height="30" as="geometry" />
-        </mxCell>
         <mxCell id="TIuWhn0yAi8Gs-Zh3u9J-231" value="Экземпляр товар" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;fontFamily=Helvetica;fontColor=default;labelBackgroundColor=default;" parent="TIuWhn0yAi8Gs-Zh3u9J-138" vertex="1">
           <mxGeometry x="245" y="291" width="160" height="56" as="geometry" />
         </mxCell>

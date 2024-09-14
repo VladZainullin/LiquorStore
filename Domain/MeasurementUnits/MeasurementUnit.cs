@@ -62,7 +62,12 @@ public sealed class MeasurementUnit : IRemovable<RemoveMeasurementUnitParameters
             .DistinctBy(mup => mup.Value)
             .Except(_measurementUnitPositions);
         
-        _measurementUnitPositions.AddRange(parameters.MeasurementUnitPositions);
+        _measurementUnitPositions.AddRange(resultMeasurementUnitPositions);
+    }
+
+    public void AddPositions()
+    {
+        
     }
 
     public void RemovePositions(RemovePositionsFromMeasurementUnitParameters parameters)

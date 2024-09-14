@@ -1,5 +1,6 @@
 using Application.Contracts.Features.MeasurementUnits.Commands.AddPositionsToMeasurementUnit;
 using Domain.MeasurementUnitPositions;
+using Domain.MeasurementUnitPositions.Parameters;
 using Domain.MeasurementUnits;
 using Domain.MeasurementUnits.Parameters;
 using MediatR;
@@ -18,7 +19,7 @@ file sealed class AddPositionsToMeasurementUnitHandler(IDbContext context) :
         var measurementUnit = await GetMeasurementUnitAsync(request, cancellationToken);
 
         var addableMeasurementUnitPositions = 
-            await GetAddableMeasurementUnitPositionsAsync(request, cancellationToken);
+            CreateMeasurementUnitPositionsAsync(request.BodyDto.Values, measurementUnit);
         
         measurementUnit.AddPositions(new AddPositionsToMeasurementUnitParameters
         {
@@ -38,11 +39,14 @@ file sealed class AddPositionsToMeasurementUnitHandler(IDbContext context) :
                 cancellationToken);
     }
 
-    private Task<List<MeasurementUnitPosition>> GetAddableMeasurementUnitPositionsAsync(AddPositionsToMeasurementUnitCommand request, CancellationToken cancellationToken)
+    private static IEnumerable<MeasurementUnitPosition> CreateMeasurementUnitPositionsAsync(
+        IEnumerable<string> values,
+        MeasurementUnit measurementUnit)
     {
-        return context.MeasurementUnitPositions
-            .AsTracking()
-            .Where(mup => request.BodyDto.MeasurementUnitPositionIds.Contains(mup.Id))
-            .ToListAsync(cancellationToken);
+        return values.Select(value => new MeasurementUnitPosition(new CreateMeasurementUnitPositionParameters
+        {
+            Value = value,
+            MeasurementUnit = measurementUnit
+        }));
     }
 }

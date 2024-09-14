@@ -1,4 +1,4 @@
-using Application.Contracts.Features.MeasurementUnits.Commands.AddPositionsToMeasurementUnit;
+using Application.Contracts.Features.MeasurementUnits.Commands.RemovePositionsFromMeasurementUnit;
 using Domain.MeasurementUnitPositions;
 using Domain.MeasurementUnits;
 using Domain.MeasurementUnits.Parameters;
@@ -9,10 +9,10 @@ using Persistence.Contracts;
 namespace Application.Features.MeasurementUnits.Commands.RemovePositionsToMeasurementUnit;
 
 file sealed class RemovePositionsToMeasurementUnitHandler(IDbContext context, TimeProvider timeProvider) : 
-    IRequestHandler<AddPositionsToMeasurementUnitCommand>
+    IRequestHandler<RemovePositionsFromMeasurementUnitCommand>
 {
     public async Task Handle(
-        AddPositionsToMeasurementUnitCommand request,
+        RemovePositionsFromMeasurementUnitCommand request,
         CancellationToken cancellationToken)
     {
         var measurementUnit = await GetMeasurementUnitAsync(request, cancellationToken);
@@ -29,7 +29,7 @@ file sealed class RemovePositionsToMeasurementUnitHandler(IDbContext context, Ti
         await context.SaveChangesAsync(cancellationToken);
     }
 
-    private Task<MeasurementUnit> GetMeasurementUnitAsync(AddPositionsToMeasurementUnitCommand request, CancellationToken cancellationToken)
+    private Task<MeasurementUnit> GetMeasurementUnitAsync(RemovePositionsFromMeasurementUnitCommand request, CancellationToken cancellationToken)
     {
         return context.MeasurementUnits
             .AsTracking()
@@ -39,7 +39,9 @@ file sealed class RemovePositionsToMeasurementUnitHandler(IDbContext context, Ti
                 cancellationToken);
     }
 
-    private Task<List<MeasurementUnitPosition>> GetAddableMeasurementUnitPositionsAsync(AddPositionsToMeasurementUnitCommand request, CancellationToken cancellationToken)
+    private Task<List<MeasurementUnitPosition>> GetAddableMeasurementUnitPositionsAsync(
+        RemovePositionsFromMeasurementUnitCommand request,
+        CancellationToken cancellationToken)
     {
         return context.MeasurementUnitPositions
             .AsTracking()

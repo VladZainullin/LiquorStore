@@ -2,5 +2,5 @@ namespace Application.Contracts.Features.MeasurementUnits.Commands.AddPositionsT
 
 public readonly struct AddPositionsToMeasurementUnitRequestBodyDto
 {
-    public required IEnumerable<Guid> MeasurementUnitPositionIds { get; init; }
+    public required IEnumerable<string> Values { get; init; }
 }

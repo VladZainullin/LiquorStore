@@ -89,6 +89,9 @@
         <mxCell id="t_xZb-i-opj9CYESKceN-7" value="Администратор" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
           <mxGeometry x="-627" y="-823" width="30" height="60" as="geometry" />
         </mxCell>
+        <mxCell id="t_xZb-i-opj9CYESKceN-8" value="Администрирование&lt;div&gt;товаров&lt;/div&gt;" style="verticalAlign=top;align=left;spacingTop=8;spacingLeft=2;spacingRight=12;shape=cube;size=10;direction=south;fontStyle=4;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="-473" y="-876" width="137" height="64" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>

@@ -96,7 +96,7 @@
           <mxGeometry x="-487" y="-798" width="136" height="50" as="geometry" />
         </mxCell>
         <mxCell id="t_xZb-i-opj9CYESKceN-17" value="Товар создан" style="html=1;whiteSpace=wrap;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;" vertex="1" parent="1">
-          <mxGeometry x="-280" y="-811" width="110" height="50" as="geometry" />
+          <mxGeometry x="-279" y="-848" width="110" height="50" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

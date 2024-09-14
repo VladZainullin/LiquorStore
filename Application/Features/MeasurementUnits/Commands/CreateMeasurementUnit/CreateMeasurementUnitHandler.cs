@@ -41,7 +41,7 @@ file sealed class CreateMeasurementUnitHandler(IDbContext context, TimeProvider 
             
             return new CreateMeasurementUnitResponseDto
             {
-                Id = existingMeasurementUnit.Id
+                MeasurementUnitId = existingMeasurementUnit.Id
             };
         }
 
@@ -59,7 +59,7 @@ file sealed class CreateMeasurementUnitHandler(IDbContext context, TimeProvider 
 
         return new CreateMeasurementUnitResponseDto
         {
-            Id = measurementUnit.Id
+            MeasurementUnitId = measurementUnit.Id
         };
     }
 

@@ -2,5 +2,5 @@ namespace Application.Contracts.Features.MeasurementUnits.Commands.CreateMeasure
 
 public readonly struct CreateMeasurementUnitResponseDto
 {
-    public required Guid Id { get; init; }
+    public required Guid MeasurementUnitId { get; init; }
 }

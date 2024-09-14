@@ -1,5 +1,6 @@
 using Domain.MeasurementUnitPositions;
 using Domain.MeasurementUnits;
+using EFCore.BulkExtensions;
 using Microsoft.EntityFrameworkCore;
 using Persistence.Contracts;
 
@@ -18,7 +19,7 @@ internal sealed class DbContextAdapter(DbContext context) :
 
     public Task SaveChangesAsync(CancellationToken cancellationToken)
     {
-        return context.SaveChangesAsync(cancellationToken);
+        return context.BulkSaveChangesAsync(cancellationToken: cancellationToken);
     }
 
     public Task MigrateAsync(CancellationToken cancellationToken = default)

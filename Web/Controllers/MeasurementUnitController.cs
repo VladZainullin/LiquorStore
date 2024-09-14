@@ -1,4 +1,5 @@
 using Application.Contracts.Features.MeasurementUnits.Commands.CreateMeasurementUnit;
+using Application.Contracts.Features.MeasurementUnits.Commands.RemoveMeasurementUnits;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Web.Controllers;
@@ -7,12 +8,17 @@ namespace Web.Controllers;
 public sealed class MeasurementUnitController : AppController
 {
     [HttpPost]
-    public async Task<IActionResult> CreateMeasurementUnitAsync(
-        CreateMeasurementUnitRequestBodyDto bodyDto,
-        CancellationToken cancellationToken)
+    public async Task<IActionResult> CreateMeasurementUnitAsync([FromBody] CreateMeasurementUnitRequestBodyDto bodyDto)
     {
         return StatusCode(
             StatusCodes.Status201Created, 
-            await Sender.Send(new CreateMeasurementUnitCommand(bodyDto), cancellationToken));
+            await Sender.Send(new CreateMeasurementUnitCommand(bodyDto), HttpContext.RequestAborted));
+    }
+
+    [HttpDelete]
+    public async Task<IActionResult> RemoveMeasurementUnitsAsync([FromBody] RemoveMeasurementUnitsRequestBodyDto bodyDto)
+    {
+        await Sender.Send(new RemoveMeasurementUnitsCommand(bodyDto), HttpContext.RequestAborted);
+        return NoContent();
     }
 }

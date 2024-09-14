@@ -89,8 +89,14 @@
         <mxCell id="t_xZb-i-opj9CYESKceN-7" value="Администратор" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
           <mxGeometry x="-644" y="-877" width="30" height="60" as="geometry" />
         </mxCell>
+        <mxCell id="t_xZb-i-opj9CYESKceN-19" style="edgeStyle=orthogonalEdgeStyle;shape=connector;curved=0;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=classic;" edge="1" parent="1" source="t_xZb-i-opj9CYESKceN-10" target="t_xZb-i-opj9CYESKceN-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="t_xZb-i-opj9CYESKceN-10" value="Витрина товаров" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
           <mxGeometry x="-313" y="-989" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="t_xZb-i-opj9CYESKceN-18" style="edgeStyle=orthogonalEdgeStyle;shape=connector;curved=0;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=classic;" edge="1" parent="1" source="t_xZb-i-opj9CYESKceN-13" target="t_xZb-i-opj9CYESKceN-17">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="t_xZb-i-opj9CYESKceN-13" value="Администрирование товаров" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
           <mxGeometry x="-487" y="-798" width="136" height="50" as="geometry" />

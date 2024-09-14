@@ -1,3 +1,5 @@
+using Domain.MeasurementUnitPositions;
+using Domain.MeasurementUnits;
 using Microsoft.EntityFrameworkCore;
 using Persistence.Contracts;
 
@@ -8,6 +10,11 @@ internal sealed class DbContextAdapter(DbContext context) :
     IMigrationContext,
     ITransactionContext
 {
+    public IDbSet<MeasurementUnitPosition> MeasurementUnitPositions { get; } =
+        new DbSetAdapter<MeasurementUnitPosition>(context);
+
+    public IDbSet<MeasurementUnit> MeasurementUnits { get; } = 
+        new DbSetAdapter<MeasurementUnit>(context);
 
     public Task SaveChangesAsync(CancellationToken cancellationToken)
     {

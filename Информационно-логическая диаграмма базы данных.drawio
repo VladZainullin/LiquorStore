@@ -84,7 +84,7 @@
           <mxGeometry x="-632" y="-1060" width="30" height="60" as="geometry" />
         </mxCell>
         <mxCell id="t_xZb-i-opj9CYESKceN-6" value="Курьер" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="-664" y="-941" width="30" height="60" as="geometry" />
+          <mxGeometry x="-355" y="-783" width="30" height="60" as="geometry" />
         </mxCell>
         <mxCell id="t_xZb-i-opj9CYESKceN-7" value="Администратор" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
           <mxGeometry x="-627" y="-823" width="30" height="60" as="geometry" />

@@ -7,11 +7,11 @@ namespace Domain.MeasurementUnits;
 
 public sealed class MeasurementUnit : IRemovable<RemoveMeasurementUnitParameters>
 {
-    public Guid _id = Guid.NewGuid();
+    private Guid _id = Guid.NewGuid();
     
     private string _title = default!;
     
-    private DateTimeOffset? _removed_at;
+    private DateTimeOffset? _removedAt;
 
     private readonly List<MeasurementUnitPosition> _measurementUnitPositions = [];
     
@@ -25,7 +25,19 @@ public sealed class MeasurementUnit : IRemovable<RemoveMeasurementUnitParameters
         {
             Title = parameters.Title
         });
+        
+        AddMeasurementUnits(new AddMeasurementUnitPositionToMeasurementUnitParameters
+        {
+            MeasurementUnitPositions = parameters.MeasurementUnitPositions
+                .Select(mup => new MeasurementUnitPosition(new CreateMeasurementUnitPositionParameters
+                {
+                    MeasurementUnit = this,
+                    Value = mup.Value
+                }))
+        });
     }
+
+    public Guid Id => _id;
 
     public string Title => _title;
 
@@ -34,13 +46,13 @@ public sealed class MeasurementUnit : IRemovable<RemoveMeasurementUnitParameters
         _title = parameters.Title;
     }
 
-    public DateTimeOffset? RemovedAt => _removed_at;
+    public DateTimeOffset? RemovedAt => _removedAt;
     
-    public bool IsRemove => _removed_at != default;
+    public bool IsRemove => _removedAt != default;
     
     public void Remove(RemoveMeasurementUnitParameters parameters)
     {
-        _removed_at = parameters.TimeProvider.GetUtcNow();
+        _removedAt = parameters.TimeProvider.GetUtcNow();
 
         foreach (var measurementUnitPosition in _measurementUnitPositions)
         {
@@ -67,6 +79,16 @@ public sealed class MeasurementUnit : IRemovable<RemoveMeasurementUnitParameters
             {
                 TimeProvider = parameters.TimeProvider
             });
+        }
+    }
+
+    public void Restore()
+    {
+        _removedAt = default;
+        
+        foreach (var measurementUnitPosition in _measurementUnitPositions)
+        {
+            measurementUnitPosition.Restore();
         }
     }
 }

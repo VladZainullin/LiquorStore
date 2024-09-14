@@ -13,7 +13,7 @@ public sealed class MeasurementUnitPosition :
 
     private MeasurementUnit _measurementUnit = default!;
 
-    private DateTimeOffset? _removed_at;
+    private DateTimeOffset? _removedAt;
     
     private MeasurementUnitPosition()
     {
@@ -23,7 +23,7 @@ public sealed class MeasurementUnitPosition :
     {
         SetValue(new SetMeasurementUnitPositionValueParameters
         {
-            Value = positionParameters.Title
+            Value = positionParameters.Value
         });
         
         SetMeasurementUnit(new SetMeasurementUnitPositionMeasurementUnitParameters
@@ -32,22 +32,33 @@ public sealed class MeasurementUnitPosition :
         });
     }
 
+    public Guid Id => _id;
+
+    public string Value => _value;
+    
     public void SetValue(SetMeasurementUnitPositionValueParameters parameters)
     {
         _value = parameters.Value;
     }
+
+    public MeasurementUnit MeasurementUnit => _measurementUnit;
 
     public void SetMeasurementUnit(SetMeasurementUnitPositionMeasurementUnitParameters parameters)
     {
         _measurementUnit = parameters.MeasurementUnit;
     }
 
-    public DateTimeOffset? RemovedAt => _removed_at;
+    public DateTimeOffset? RemovedAt => _removedAt;
 
-    public bool IsRemove => _removed_at != default;
+    public bool IsRemove => _removedAt != default;
 
     public void Remove(RemoveMeasurementUnitPositionParameters parameters)
     {
-        _removed_at = parameters.TimeProvider.GetUtcNow();
+        _removedAt = parameters.TimeProvider.GetUtcNow();
+    }
+
+    public void Restore()
+    {
+        _removedAt = default;
     }
 }

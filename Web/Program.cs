@@ -1,5 +1,4 @@
 using Application;
-using Domain;
 using Persistence;
 using Persistence.Contracts;
 using Serilog;
@@ -26,7 +25,6 @@ file static class Program
             builder.Host.UseSerilog(logger);
 
             builder.Services
-                .AddDomainServices()
                 .AddPersistenceServices()
                 .AddApplicationServices()
                 .AddWebServices(builder.Configuration);

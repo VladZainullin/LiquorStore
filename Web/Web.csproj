@@ -6,7 +6,6 @@
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
       <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" />
-      <PackageReference Include="Minio" />
       <PackageReference Include="Serilog.AspNetCore" />
       <PackageReference Include="Serilog.Enrichers.AssemblyName" />
       <PackageReference Include="Serilog.Enrichers.Environment" />

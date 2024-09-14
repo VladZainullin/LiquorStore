@@ -26,7 +26,7 @@ file sealed class CreateMeasurementUnitHandler(IDbContext context, TimeProvider 
             {
                 existingMeasurementUnit.Restore();
             
-                existingMeasurementUnit.RemoveMeasurementUnitPositions(new RemoveMeasurementUnitPositionsFromMeasurementUnitParameters
+                existingMeasurementUnit.RemovePositions(new RemovePositionsFromMeasurementUnitParameters
                 {
                     TimeProvider = timeProvider,
                     MeasurementUnitPositions = measurementUnitPositionsFromRequest
@@ -34,7 +34,7 @@ file sealed class CreateMeasurementUnitHandler(IDbContext context, TimeProvider 
                 });
             }
             
-            existingMeasurementUnit.AddMeasurementUnitPositions(new AddMeasurementUnitPositionToMeasurementUnitParameters
+            existingMeasurementUnit.AddPositions(new AddPositionsToMeasurementUnitParameters
             {
                 MeasurementUnitPositions = measurementUnitPositionsFromRequest
             });
@@ -49,7 +49,7 @@ file sealed class CreateMeasurementUnitHandler(IDbContext context, TimeProvider 
         {
             Title = request.BodyDto.Title,
         });
-        measurementUnit.AddMeasurementUnitPositions(new AddMeasurementUnitPositionToMeasurementUnitParameters
+        measurementUnit.AddPositions(new AddPositionsToMeasurementUnitParameters
         {
             MeasurementUnitPositions = measurementUnitPositionsFromRequest
         });

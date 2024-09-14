@@ -56,7 +56,7 @@ public sealed class MeasurementUnit : IRemovable<RemoveMeasurementUnitParameters
     public IReadOnlyCollection<MeasurementUnitPosition> MeasurementUnitPositions =>
         _measurementUnitPositions.AsReadOnly();
 
-    public void AddMeasurementUnitPositions(AddMeasurementUnitPositionToMeasurementUnitParameters parameters)
+    public void AddPositions(AddPositionsToMeasurementUnitParameters parameters)
     {
         var resultMeasurementUnitPositions = parameters.MeasurementUnitPositions
             .DistinctBy(mup => mup.Value)
@@ -65,7 +65,7 @@ public sealed class MeasurementUnit : IRemovable<RemoveMeasurementUnitParameters
         _measurementUnitPositions.AddRange(parameters.MeasurementUnitPositions);
     }
 
-    public void RemoveMeasurementUnitPositions(RemoveMeasurementUnitPositionsFromMeasurementUnitParameters parameters)
+    public void RemovePositions(RemovePositionsFromMeasurementUnitParameters parameters)
     {
         foreach (var measurementUnitPosition in parameters.MeasurementUnitPositions)
         {

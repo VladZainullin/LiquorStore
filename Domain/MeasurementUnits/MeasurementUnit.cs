@@ -25,16 +25,6 @@ public sealed class MeasurementUnit : IRemovable<RemoveMeasurementUnitParameters
         {
             Title = parameters.Title
         });
-        
-        AddMeasurementUnits(new AddMeasurementUnitPositionToMeasurementUnitParameters
-        {
-            MeasurementUnitPositions = parameters.MeasurementUnitPositions
-                .Select(mup => new MeasurementUnitPosition(new CreateMeasurementUnitPositionParameters
-                {
-                    MeasurementUnit = this,
-                    Value = mup.Value
-                }))
-        });
     }
 
     public Guid Id => _id;
@@ -66,12 +56,16 @@ public sealed class MeasurementUnit : IRemovable<RemoveMeasurementUnitParameters
     public IReadOnlyCollection<MeasurementUnitPosition> MeasurementUnitPositions =>
         _measurementUnitPositions.AsReadOnly();
 
-    public void AddMeasurementUnits(AddMeasurementUnitPositionToMeasurementUnitParameters parameters)
+    public void AddMeasurementUnitPositions(AddMeasurementUnitPositionToMeasurementUnitParameters parameters)
     {
+        var resultMeasurementUnitPositions = parameters.MeasurementUnitPositions
+            .DistinctBy(mup => mup.Value)
+            .Except(_measurementUnitPositions);
+        
         _measurementUnitPositions.AddRange(parameters.MeasurementUnitPositions);
     }
 
-    public void RemoveMeasurementUnits(RemoveMeasurementUnitPositionsFromMeasurementUnitParameters parameters)
+    public void RemoveMeasurementUnitPositions(RemoveMeasurementUnitPositionsFromMeasurementUnitParameters parameters)
     {
         foreach (var measurementUnitPosition in parameters.MeasurementUnitPositions)
         {

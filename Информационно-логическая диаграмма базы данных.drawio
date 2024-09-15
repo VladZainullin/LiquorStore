@@ -1,11 +1,11 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36" version="24.7.14">
   <diagram name="Страница — 1" id="W9IkOPkcE-70tv02vc99">
-    <mxGraphModel dx="2417" dy="2177" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1831" dy="1806" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="TIuWhn0yAi8Gs-Zh3u9J-138" value="Микросервис: администрирование товаров" style="swimlane;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;" parent="1" vertex="1">
-          <mxGeometry x="-698" y="-684" width="844" height="552" as="geometry" />
+          <mxGeometry x="-693" y="-604" width="844" height="552" as="geometry" />
         </mxCell>
         <mxCell id="TIuWhn0yAi8Gs-Zh3u9J-19" style="edgeStyle=orthogonalEdgeStyle;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=ERoneToMany;endFill=0;" parent="TIuWhn0yAi8Gs-Zh3u9J-138" source="TIuWhn0yAi8Gs-Zh3u9J-1" target="TIuWhn0yAi8Gs-Zh3u9J-13" edge="1">
           <mxGeometry relative="1" as="geometry" />
@@ -80,32 +80,35 @@
         <mxCell id="VgQCesWckuyEMALxXEr0-107" value="Описание" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=11;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontColor=default;labelBackgroundColor=default;" parent="VgQCesWckuyEMALxXEr0-102" vertex="1">
           <mxGeometry y="56" width="160" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="t_xZb-i-opj9CYESKceN-20" style="edgeStyle=orthogonalEdgeStyle;shape=connector;curved=0;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=classic;" edge="1" parent="1" source="t_xZb-i-opj9CYESKceN-1" target="t_xZb-i-opj9CYESKceN-10">
+        <mxCell id="t_xZb-i-opj9CYESKceN-20" style="edgeStyle=orthogonalEdgeStyle;shape=connector;curved=0;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=classic;" parent="1" source="t_xZb-i-opj9CYESKceN-1" target="t_xZb-i-opj9CYESKceN-10" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="t_xZb-i-opj9CYESKceN-1" value="Покупатель" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+        <mxCell id="t_xZb-i-opj9CYESKceN-1" value="Покупатель" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
           <mxGeometry x="-632" y="-1060" width="30" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="t_xZb-i-opj9CYESKceN-14" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;curved=0;" edge="1" parent="1" source="t_xZb-i-opj9CYESKceN-7" target="t_xZb-i-opj9CYESKceN-13">
+        <mxCell id="t_xZb-i-opj9CYESKceN-14" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;curved=0;" parent="1" source="t_xZb-i-opj9CYESKceN-7" target="t_xZb-i-opj9CYESKceN-13" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="t_xZb-i-opj9CYESKceN-7" value="Администратор" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+        <mxCell id="t_xZb-i-opj9CYESKceN-7" value="Администратор" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
           <mxGeometry x="-644" y="-877" width="30" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="t_xZb-i-opj9CYESKceN-19" style="edgeStyle=orthogonalEdgeStyle;shape=connector;curved=0;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=classic;" edge="1" parent="1" source="t_xZb-i-opj9CYESKceN-10" target="t_xZb-i-opj9CYESKceN-17">
+        <mxCell id="t_xZb-i-opj9CYESKceN-19" style="edgeStyle=orthogonalEdgeStyle;shape=connector;curved=0;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=classic;" parent="1" source="t_xZb-i-opj9CYESKceN-10" target="t_xZb-i-opj9CYESKceN-17" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="t_xZb-i-opj9CYESKceN-10" value="Витрина товаров" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+        <mxCell id="t_xZb-i-opj9CYESKceN-10" value="Витрина товаров" style="html=1;whiteSpace=wrap;" parent="1" vertex="1">
           <mxGeometry x="-313" y="-989" width="110" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="t_xZb-i-opj9CYESKceN-18" style="edgeStyle=orthogonalEdgeStyle;shape=connector;curved=0;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=classic;" edge="1" parent="1" source="t_xZb-i-opj9CYESKceN-13" target="t_xZb-i-opj9CYESKceN-17">
+        <mxCell id="t_xZb-i-opj9CYESKceN-18" style="edgeStyle=orthogonalEdgeStyle;shape=connector;curved=0;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=classic;" parent="1" source="t_xZb-i-opj9CYESKceN-13" target="t_xZb-i-opj9CYESKceN-17" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="t_xZb-i-opj9CYESKceN-13" value="Администрирование товаров" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+        <mxCell id="t_xZb-i-opj9CYESKceN-13" value="Администрирование товаров" style="html=1;whiteSpace=wrap;" parent="1" vertex="1">
           <mxGeometry x="-487" y="-798" width="136" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="t_xZb-i-opj9CYESKceN-17" value="Товар создан" style="html=1;whiteSpace=wrap;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;" vertex="1" parent="1">
+        <mxCell id="t_xZb-i-opj9CYESKceN-17" value="Товар создан" style="html=1;whiteSpace=wrap;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;" parent="1" vertex="1">
           <mxGeometry x="-279" y="-848" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="tXT5MyT5mK8X1898G5qQ-2" value="Администрирование единиц измерения" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="-468" y="-701" width="134" height="50" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

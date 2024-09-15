@@ -1,11 +1,9 @@
-using Domain.Abstractions;
 using Domain.MeasurementUnitPositions.Parameters;
 using Domain.MeasurementUnits;
 
 namespace Domain.MeasurementUnitPositions;
 
-public sealed class MeasurementUnitPosition : 
-    IRemovable<RemoveMeasurementUnitPositionParameters>
+public sealed class MeasurementUnitPosition
 {
     private Guid _id = Guid.NewGuid();
     

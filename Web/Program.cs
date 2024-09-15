@@ -3,6 +3,7 @@ using Domain;
 using Persistence;
 using Persistence.Contracts;
 using Serilog;
+using Web.Middlewares;
 
 
 namespace Web;
@@ -29,7 +30,7 @@ file static class Program
                 .AddDomainServices()
                 .AddPersistenceServices()
                 .AddApplicationServices()
-                .AddWebServices(builder.Configuration);
+                .AddWebServices();
 
             await using var app = builder.Build();
 
@@ -43,6 +44,7 @@ file static class Program
 
             app.UseHealthChecks("/health");
 
+            app.UseMiddleware<TransactionMiddleware>();
             app.MapControllers();
 
             await app.RunAsync();

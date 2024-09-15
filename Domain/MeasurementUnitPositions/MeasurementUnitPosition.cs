@@ -5,7 +5,7 @@ namespace Domain.MeasurementUnitPositions;
 
 public sealed class MeasurementUnitPosition
 {
-    private Guid _id;
+    private Guid _id = Guid.NewGuid();
     
     private string _value = default!;
     
@@ -17,8 +17,6 @@ public sealed class MeasurementUnitPosition
 
     internal MeasurementUnitPosition(CreateMeasurementUnitPositionParameters positionParameters) : this()
     {
-        _id = Guid.NewGuid();
-        
         SetValue(new SetMeasurementUnitPositionValueParameters
         {
             Value = positionParameters.Value

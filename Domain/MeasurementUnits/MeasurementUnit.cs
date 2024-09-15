@@ -1,4 +1,3 @@
-using System.ComponentModel.DataAnnotations.Schema;
 using Domain.MeasurementUnitPositions;
 using Domain.MeasurementUnitPositions.Parameters;
 using Domain.MeasurementUnits.Parameters;
@@ -7,7 +6,7 @@ namespace Domain.MeasurementUnits;
 
 public sealed class MeasurementUnit
 {
-    private Guid _id;
+    private Guid _id = Guid.NewGuid();
     
     private string _title = default!;
 
@@ -19,8 +18,6 @@ public sealed class MeasurementUnit
 
     public MeasurementUnit(CreateMeasurementUnitParameters parameters) : this()
     {
-        _id = Guid.NewGuid();
-        
         SetTitle(new SetMeasurementUnitTitleParameters
         {
             Title = parameters.Title

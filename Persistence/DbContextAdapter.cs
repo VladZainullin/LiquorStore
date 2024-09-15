@@ -1,6 +1,5 @@
 using Domain.MeasurementUnitPositions;
 using Domain.MeasurementUnits;
-using EFCore.BulkExtensions;
 using Microsoft.EntityFrameworkCore;
 using Persistence.Contracts;
 

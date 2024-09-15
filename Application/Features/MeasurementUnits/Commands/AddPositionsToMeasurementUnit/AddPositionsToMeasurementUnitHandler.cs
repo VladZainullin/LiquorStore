@@ -18,10 +18,10 @@ file sealed class AddPositionsToMeasurementUnitHandler(IDbContext context) :
 
         measurementUnit.AddPositions(new AddPositionsToMeasurementUnitParameters
         {
-            MeasurementUnitPositions = request.BodyDto.Values
-                .Select(static value => new AddPositionsToMeasurementUnitParameters.MeasurementUnitPosition
+            MeasurementUnitPositions = request.BodyDto.MeasurementUnitPositions
+                .Select(static mup => new AddPositionsToMeasurementUnitParameters.MeasurementUnitPosition
                 {
-                    Value = value
+                    Value = mup.Value
                 })
         });
         await context.SaveChangesAsync(cancellationToken);

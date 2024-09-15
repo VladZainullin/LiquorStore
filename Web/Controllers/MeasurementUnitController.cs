@@ -3,6 +3,7 @@ using Application.Contracts.Features.MeasurementUnits.Commands.CreateMeasurement
 using Application.Contracts.Features.MeasurementUnits.Commands.RemoveMeasurementUnits;
 using Application.Contracts.Features.MeasurementUnits.Commands.RemovePositionsFromMeasurementUnit;
 using Application.Contracts.Features.MeasurementUnits.Commands.UpdateMeasurementUnit;
+using Application.Contracts.Features.MeasurementUnits.Commands.UpdateMeasurementUnitPosition;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Web.Controllers;
@@ -49,6 +50,15 @@ public sealed class MeasurementUnitController : AppController
         [FromBody] UpdateMeasurementUnitRequestBodyDto bodyDto)
     {
         await Sender.Send(new UpdateMeasurementUnitCommand(routeDto, bodyDto), HttpContext.RequestAborted);
+        return NoContent();
+    }
+
+    [HttpPut("{measurementUnitId:guid}/positions/{measurementUnitPositionId:guid}")]
+    public async Task<IActionResult> UpdateMeasurementUnitPositionAsync(
+        [FromRoute] UpdateMeasurementUnitPositionRequestRouteDto routeDto,
+        [FromBody] UpdateMeasurementUnitPositionRequestBodyDto bodyDto)
+    {
+        await Sender.Send(new UpdateMeasurementUnitPositionCommand(routeDto, bodyDto), HttpContext.RequestAborted);
         return NoContent();
     }
 }

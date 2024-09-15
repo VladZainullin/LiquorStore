@@ -32,7 +32,7 @@ public sealed class MeasurementUnitPosition
 
     public string Value => _value;
 
-    private void SetValue(SetMeasurementUnitPositionValueParameters parameters)
+    internal void SetValue(SetMeasurementUnitPositionValueParameters parameters)
     {
         _value = parameters.Value;
     }

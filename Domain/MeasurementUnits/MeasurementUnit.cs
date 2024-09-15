@@ -65,4 +65,18 @@ public sealed class MeasurementUnit
             _measurementUnitPositions.Remove(measurementUnitPosition);
         }
     }
+
+    public void SetPositionValue(SetPositionValueParameters parameters)
+    {
+        var position = _measurementUnitPositions
+            .SingleOrDefault(mup => mup.Id == parameters.MeasurementUnitPositionId);
+        
+        if (!ReferenceEquals(position, default))
+        {
+            position.SetValue(new SetMeasurementUnitPositionValueParameters
+            {
+                Value = parameters.Value
+            });
+        }
+    }
 }

@@ -5,7 +5,7 @@
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="TIuWhn0yAi8Gs-Zh3u9J-138" value="Микросервис: администрирование товаров" style="swimlane;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;" parent="1" vertex="1">
-          <mxGeometry x="-693" y="-604" width="844" height="552" as="geometry" />
+          <mxGeometry x="-693" y="-508" width="844" height="552" as="geometry" />
         </mxCell>
         <mxCell id="TIuWhn0yAi8Gs-Zh3u9J-19" style="edgeStyle=orthogonalEdgeStyle;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=ERoneToMany;endFill=0;" parent="TIuWhn0yAi8Gs-Zh3u9J-138" source="TIuWhn0yAi8Gs-Zh3u9J-1" target="TIuWhn0yAi8Gs-Zh3u9J-13" edge="1">
           <mxGeometry relative="1" as="geometry" />
@@ -89,6 +89,13 @@
         <mxCell id="t_xZb-i-opj9CYESKceN-14" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;curved=0;" parent="1" source="t_xZb-i-opj9CYESKceN-7" target="t_xZb-i-opj9CYESKceN-13" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
+        <mxCell id="tXT5MyT5mK8X1898G5qQ-3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;curved=0;" edge="1" parent="1" source="t_xZb-i-opj9CYESKceN-7" target="tXT5MyT5mK8X1898G5qQ-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-629" y="-676" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
         <mxCell id="t_xZb-i-opj9CYESKceN-7" value="Администратор" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
           <mxGeometry x="-644" y="-877" width="30" height="60" as="geometry" />
         </mxCell>
@@ -101,14 +108,28 @@
         <mxCell id="t_xZb-i-opj9CYESKceN-18" style="edgeStyle=orthogonalEdgeStyle;shape=connector;curved=0;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=classic;" parent="1" source="t_xZb-i-opj9CYESKceN-13" target="t_xZb-i-opj9CYESKceN-17" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
+        <mxCell id="tXT5MyT5mK8X1898G5qQ-7" style="edgeStyle=orthogonalEdgeStyle;shape=connector;curved=0;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=classic;" edge="1" parent="1" source="t_xZb-i-opj9CYESKceN-13" target="tXT5MyT5mK8X1898G5qQ-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-419" y="-733" />
+              <mxPoint x="-212" y="-733" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
         <mxCell id="t_xZb-i-opj9CYESKceN-13" value="Администрирование товаров" style="html=1;whiteSpace=wrap;" parent="1" vertex="1">
           <mxGeometry x="-487" y="-798" width="136" height="50" as="geometry" />
         </mxCell>
         <mxCell id="t_xZb-i-opj9CYESKceN-17" value="Товар создан" style="html=1;whiteSpace=wrap;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;" parent="1" vertex="1">
           <mxGeometry x="-279" y="-848" width="110" height="50" as="geometry" />
         </mxCell>
+        <mxCell id="tXT5MyT5mK8X1898G5qQ-5" style="edgeStyle=orthogonalEdgeStyle;shape=connector;curved=0;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=classic;" edge="1" parent="1" source="tXT5MyT5mK8X1898G5qQ-2" target="tXT5MyT5mK8X1898G5qQ-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="tXT5MyT5mK8X1898G5qQ-2" value="Администрирование единиц измерения" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
-          <mxGeometry x="-468" y="-701" width="134" height="50" as="geometry" />
+          <mxGeometry x="-485" y="-644" width="134" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="tXT5MyT5mK8X1898G5qQ-4" value="Значение единицы измерения создано" style="html=1;whiteSpace=wrap;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;" vertex="1" parent="1">
+          <mxGeometry x="-267" y="-705" width="110" height="50" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

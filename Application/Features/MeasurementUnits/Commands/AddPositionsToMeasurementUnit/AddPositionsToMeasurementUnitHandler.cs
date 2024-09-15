@@ -1,6 +1,4 @@
 using Application.Contracts.Features.MeasurementUnits.Commands.AddPositionsToMeasurementUnit;
-using Domain.MeasurementUnitPositions;
-using Domain.MeasurementUnitPositions.Parameters;
 using Domain.MeasurementUnits;
 using Domain.MeasurementUnits.Parameters;
 using MediatR;
@@ -9,7 +7,7 @@ using Persistence.Contracts;
 
 namespace Application.Features.MeasurementUnits.Commands.AddPositionsToMeasurementUnit;
 
-file sealed class AddPositionsToMeasurementUnitHandler(IDbContext context) : 
+file sealed class AddPositionsToMeasurementUnitHandler(IDbContext context) :
     IRequestHandler<AddPositionsToMeasurementUnitCommand>
 {
     public async Task Handle(
@@ -18,18 +16,19 @@ file sealed class AddPositionsToMeasurementUnitHandler(IDbContext context) :
     {
         var measurementUnit = await GetMeasurementUnitAsync(request, cancellationToken);
 
-        var addableMeasurementUnitPositions = 
-            CreateMeasurementUnitPositionsAsync(request.BodyDto.Values, measurementUnit);
-        
         measurementUnit.AddPositions(new AddPositionsToMeasurementUnitParameters
         {
-            MeasurementUnitPositions = addableMeasurementUnitPositions
+            MeasurementUnitPositions = request.BodyDto.Values
+                .Select(static value => new AddPositionsToMeasurementUnitParameters.MeasurementUnitPosition
+                {
+                    Value = value
+                })
         });
-
         await context.SaveChangesAsync(cancellationToken);
     }
 
-    private Task<MeasurementUnit> GetMeasurementUnitAsync(AddPositionsToMeasurementUnitCommand request, CancellationToken cancellationToken)
+    private Task<MeasurementUnit> GetMeasurementUnitAsync(AddPositionsToMeasurementUnitCommand request,
+        CancellationToken cancellationToken)
     {
         return context.MeasurementUnits
             .AsTracking()
@@ -37,16 +36,5 @@ file sealed class AddPositionsToMeasurementUnitHandler(IDbContext context) :
             .SingleAsync(
                 mu => mu.Id == request.RouteDto.MeasurementUnitId,
                 cancellationToken);
-    }
-
-    private static IEnumerable<MeasurementUnitPosition> CreateMeasurementUnitPositionsAsync(
-        IEnumerable<string> values,
-        MeasurementUnit measurementUnit)
-    {
-        return values.Select(value => new MeasurementUnitPosition(new CreateMeasurementUnitPositionParameters
-        {
-            Value = value,
-            MeasurementUnit = measurementUnit
-        }));
     }
 }

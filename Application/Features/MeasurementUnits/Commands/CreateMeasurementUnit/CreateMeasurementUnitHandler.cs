@@ -1,5 +1,4 @@
 using Application.Contracts.Features.MeasurementUnits.Commands.CreateMeasurementUnit;
-using Domain.MeasurementUnitPositions;
 using Domain.MeasurementUnits;
 using Domain.MeasurementUnits.Parameters;
 using MediatR;
@@ -8,7 +7,7 @@ using Persistence.Contracts;
 
 namespace Application.Features.MeasurementUnits.Commands.CreateMeasurementUnit;
 
-file sealed class CreateMeasurementUnitHandler(IDbContext context, TimeProvider timeProvider)
+file sealed class CreateMeasurementUnitHandler(IDbContext context)
     : IRequestHandler<CreateMeasurementUnitCommand, CreateMeasurementUnitResponseDto>
 {
     public async Task<CreateMeasurementUnitResponseDto> Handle(
@@ -17,63 +16,60 @@ file sealed class CreateMeasurementUnitHandler(IDbContext context, TimeProvider 
     {
         var existingMeasurementUnit = await GetMeasurementUnitAsync(request, cancellationToken);
 
-        var measurementUnitPositionsFromRequest = 
-            await GetMeasurementUnitPositionsFromRequestAsync(request, cancellationToken);
-        
-        if (!ReferenceEquals(existingMeasurementUnit, default))
+        if (ReferenceEquals(existingMeasurementUnit, default))
         {
-            if (existingMeasurementUnit.IsRemove)
+            var measurementUnit = new MeasurementUnit(new CreateMeasurementUnitParameters
             {
-                existingMeasurementUnit.Restore();
-            
-                existingMeasurementUnit.RemovePositions(new RemovePositionsFromMeasurementUnitParameters
-                {
-                    TimeProvider = timeProvider,
-                    MeasurementUnitPositions = measurementUnitPositionsFromRequest
-                        .Except(existingMeasurementUnit.MeasurementUnitPositions)
-                });
-            }
-            
-            existingMeasurementUnit.AddPositions(new AddPositionsToMeasurementUnitParameters
-            {
-                MeasurementUnitPositions = measurementUnitPositionsFromRequest
+                Title = request.BodyDto.Title,
             });
-            
+            measurementUnit.AddPositions(new AddPositionsToMeasurementUnitParameters
+            {
+                MeasurementUnitPositions = request.BodyDto.MeasurementUnitPositions
+                    .Select(s => new AddPositionsToMeasurementUnitParameters.MeasurementUnitPosition
+                    {
+                        Value = s.Value
+                    })
+            });
+
+            context.MeasurementUnits.Add(measurementUnit);
+            await context.SaveChangesAsync(cancellationToken);
+
             return new CreateMeasurementUnitResponseDto
             {
-                MeasurementUnitId = existingMeasurementUnit.Id
+                MeasurementUnitId = measurementUnit.Id
             };
         }
 
-        var measurementUnit = new MeasurementUnit(new CreateMeasurementUnitParameters
-        {
-            Title = request.BodyDto.Title,
-        });
-        measurementUnit.AddPositions(new AddPositionsToMeasurementUnitParameters
-        {
-            MeasurementUnitPositions = measurementUnitPositionsFromRequest
-        });
+        var measurementUnitPositions = existingMeasurementUnit.MeasurementUnitPositions
+            .ExceptBy(
+                request.BodyDto.MeasurementUnitPositions
+                    .Select(static m => m.Value),
+                m => m.Value);
         
-        context.MeasurementUnits.Add(measurementUnit);
-        await context.SaveChangesAsync(cancellationToken);
+        existingMeasurementUnit.RemovePositions(new RemovePositionsFromMeasurementUnitParameters
+        {
+            MeasurementUnitPositions = measurementUnitPositions
+        });
 
+        existingMeasurementUnit.AddPositions(new AddPositionsToMeasurementUnitParameters
+        {
+            MeasurementUnitPositions = request.BodyDto.MeasurementUnitPositions
+                .Select(s => new AddPositionsToMeasurementUnitParameters.MeasurementUnitPosition
+                {
+                    Value = s.Value
+                })
+        });
+
+        await context.SaveChangesAsync(cancellationToken);
+        
         return new CreateMeasurementUnitResponseDto
         {
-            MeasurementUnitId = measurementUnit.Id
+            MeasurementUnitId = existingMeasurementUnit.Id
         };
     }
 
-    private Task<List<MeasurementUnitPosition>> GetMeasurementUnitPositionsFromRequestAsync(CreateMeasurementUnitCommand request, CancellationToken cancellationToken)
-    {
-        return context.MeasurementUnitPositions
-            .AsTracking()
-            .Where(mup => request.BodyDto.MeasurementUnitPositions
-                .Select(m => m.Id)
-                .Contains(mup.Id))
-            .ToListAsync(cancellationToken);
-    }
-
-    private Task<MeasurementUnit?> GetMeasurementUnitAsync(CreateMeasurementUnitCommand request, CancellationToken cancellationToken)
+    private Task<MeasurementUnit?> GetMeasurementUnitAsync(CreateMeasurementUnitCommand request,
+        CancellationToken cancellationToken)
     {
         return context.MeasurementUnits
             .Include(static mu => mu.MeasurementUnitPositions)

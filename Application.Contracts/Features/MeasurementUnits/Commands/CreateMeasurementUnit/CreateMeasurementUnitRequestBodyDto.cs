@@ -9,6 +9,6 @@ public readonly struct CreateMeasurementUnitRequestBodyDto
     
     public readonly struct MeasurementUnitPositionDto
     {
-        public required Guid Id { get; init; }
+        public required string Value { get; init; }
     }
 }

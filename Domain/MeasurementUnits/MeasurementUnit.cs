@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations.Schema;
 using Domain.MeasurementUnitPositions;
 using Domain.MeasurementUnitPositions.Parameters;
 using Domain.MeasurementUnits.Parameters;
@@ -6,11 +7,9 @@ namespace Domain.MeasurementUnits;
 
 public sealed class MeasurementUnit
 {
-    private Guid _id = Guid.NewGuid();
+    private Guid _id;
     
     private string _title = default!;
-    
-    private DateTimeOffset? _removedAt;
 
     private readonly List<MeasurementUnitPosition> _measurementUnitPositions = [];
     
@@ -20,6 +19,8 @@ public sealed class MeasurementUnit
 
     public MeasurementUnit(CreateMeasurementUnitParameters parameters) : this()
     {
+        _id = Guid.NewGuid();
+        
         SetTitle(new SetMeasurementUnitTitleParameters
         {
             Title = parameters.Title
@@ -35,58 +36,36 @@ public sealed class MeasurementUnit
         _title = parameters.Title;
     }
 
-    public DateTimeOffset? RemovedAt => _removedAt;
-    
-    public bool IsRemove => _removedAt != default;
-    
-    public void Remove(RemoveMeasurementUnitParameters parameters)
-    {
-        _removedAt = parameters.TimeProvider.GetUtcNow();
-
-        foreach (var measurementUnitPosition in _measurementUnitPositions)
-        {
-            measurementUnitPosition.Remove(new RemoveMeasurementUnitPositionParameters
-            {
-                TimeProvider = parameters.TimeProvider
-            });
-        }
-    }
-
     public IReadOnlyCollection<MeasurementUnitPosition> MeasurementUnitPositions =>
         _measurementUnitPositions.AsReadOnly();
 
     public void AddPositions(AddPositionsToMeasurementUnitParameters parameters)
     {
         var resultMeasurementUnitPositions = parameters.MeasurementUnitPositions
+            .ExceptBy(_measurementUnitPositions.Select(m => m.Value), m => m.Value)
             .DistinctBy(mup => mup.Value)
-            .Except(_measurementUnitPositions);
+            .Select(m => new MeasurementUnitPosition(new CreateMeasurementUnitPositionParameters
+            {
+                Value = m.Value,
+                MeasurementUnit = this
+            }))
+            .ToArray();
         
-        _measurementUnitPositions.AddRange(resultMeasurementUnitPositions);
-    }
-
-    public void AddPositions()
-    {
-        
+        foreach (var measurementUnitPosition in resultMeasurementUnitPositions)
+        {
+            _measurementUnitPositions.Add(measurementUnitPosition);
+        }
     }
 
     public void RemovePositions(RemovePositionsFromMeasurementUnitParameters parameters)
     {
-        foreach (var measurementUnitPosition in parameters.MeasurementUnitPositions)
-        {
-            measurementUnitPosition.Remove(new RemoveMeasurementUnitPositionParameters
-            {
-                TimeProvider = parameters.TimeProvider
-            });
-        }
-    }
-
-    public void Restore()
-    {
-        _removedAt = default;
+        var resultMeasurementUnits = _measurementUnitPositions
+            .Intersect(parameters.MeasurementUnitPositions)
+            .ToArray();
         
-        foreach (var measurementUnitPosition in _measurementUnitPositions)
+        foreach (var measurementUnitPosition in resultMeasurementUnits)
         {
-            measurementUnitPosition.Restore();
+            _measurementUnitPositions.Remove(measurementUnitPosition);
         }
     }
 }

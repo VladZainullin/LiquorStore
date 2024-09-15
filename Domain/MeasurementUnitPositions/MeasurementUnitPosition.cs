@@ -5,20 +5,20 @@ namespace Domain.MeasurementUnitPositions;
 
 public sealed class MeasurementUnitPosition
 {
-    private Guid _id = Guid.NewGuid();
+    private Guid _id;
     
     private string _value = default!;
-
+    
     private MeasurementUnit _measurementUnit = default!;
-
-    private DateTimeOffset? _removedAt;
     
     private MeasurementUnitPosition()
     {
     }
 
-    public MeasurementUnitPosition(CreateMeasurementUnitPositionParameters positionParameters) : this()
+    internal MeasurementUnitPosition(CreateMeasurementUnitPositionParameters positionParameters) : this()
     {
+        _id = Guid.NewGuid();
+        
         SetValue(new SetMeasurementUnitPositionValueParameters
         {
             Value = positionParameters.Value
@@ -33,30 +33,16 @@ public sealed class MeasurementUnitPosition
     public Guid Id => _id;
 
     public string Value => _value;
-    
-    public void SetValue(SetMeasurementUnitPositionValueParameters parameters)
+
+    private void SetValue(SetMeasurementUnitPositionValueParameters parameters)
     {
         _value = parameters.Value;
     }
-
+    
     public MeasurementUnit MeasurementUnit => _measurementUnit;
 
-    public void SetMeasurementUnit(SetMeasurementUnitPositionMeasurementUnitParameters parameters)
+    private void SetMeasurementUnit(SetMeasurementUnitPositionMeasurementUnitParameters parameters)
     {
         _measurementUnit = parameters.MeasurementUnit;
-    }
-
-    public DateTimeOffset? RemovedAt => _removedAt;
-
-    public bool IsRemove => _removedAt != default;
-
-    public void Remove(RemoveMeasurementUnitPositionParameters parameters)
-    {
-        _removedAt = parameters.TimeProvider.GetUtcNow();
-    }
-
-    public void Restore()
-    {
-        _removedAt = default;
     }
 }

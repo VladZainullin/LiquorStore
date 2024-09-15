@@ -8,7 +8,7 @@ using Persistence.Contracts;
 
 namespace Application.Features.MeasurementUnits.Commands.RemovePositionsToMeasurementUnit;
 
-file sealed class RemovePositionsToMeasurementUnitHandler(IDbContext context, TimeProvider timeProvider) : 
+file sealed class RemovePositionsToMeasurementUnitHandler(IDbContext context) : 
     IRequestHandler<RemovePositionsFromMeasurementUnitCommand>
 {
     public async Task Handle(
@@ -23,7 +23,6 @@ file sealed class RemovePositionsToMeasurementUnitHandler(IDbContext context, Ti
         measurementUnit.RemovePositions(new RemovePositionsFromMeasurementUnitParameters
         {
             MeasurementUnitPositions = addableMeasurementUnitPositions,
-            TimeProvider = timeProvider
         });
 
         await context.SaveChangesAsync(cancellationToken);

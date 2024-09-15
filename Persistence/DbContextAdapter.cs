@@ -19,7 +19,7 @@ internal sealed class DbContextAdapter(DbContext context) :
 
     public Task SaveChangesAsync(CancellationToken cancellationToken)
     {
-        return context.BulkSaveChangesAsync(cancellationToken: cancellationToken);
+        return context.SaveChangesAsync(cancellationToken: cancellationToken);
     }
 
     public Task MigrateAsync(CancellationToken cancellationToken = default)

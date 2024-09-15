@@ -9,8 +9,10 @@ file sealed class MeasurementUnitPositionConfiguration :
 {
     public void Configure(EntityTypeBuilder<MeasurementUnitPosition> builder)
     {
-        builder.Property(static mup => mup.Id).HasField("_id");
+        builder.Property(static mup => mup.Id).HasField("_id").ValueGeneratedNever();
         builder.Property(static mup => mup.Value).HasField("_value");
-        builder.Property(static mup => mup.RemovedAt).HasField("_removedAt");
+        builder
+            .HasOne(static mup => mup.MeasurementUnit)
+            .WithMany(static mu => mu.MeasurementUnitPositions);
     }
 }

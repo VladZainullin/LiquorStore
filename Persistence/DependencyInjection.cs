@@ -19,6 +19,8 @@ public static class DependencyInjection
             var connectionString = npgsqlConnectionStringBuilder.ConnectionString;
             options
                 .UseSnakeCaseNamingConvention()
+                .EnableDetailedErrors()
+                .EnableSensitiveDataLogging()
                 .UseNpgsql(connectionString, ob =>
                 {
                     ob.MigrationsAssembly("Persistence");

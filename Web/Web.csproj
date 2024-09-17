@@ -7,7 +7,6 @@
       </PackageReference>
       <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" />
       <PackageReference Include="Serilog.AspNetCore" />
-      <PackageReference Include="Serilog.Enrichers.AssemblyName" />
       <PackageReference Include="Serilog.Enrichers.Environment" />
       <PackageReference Include="Serilog.Exceptions" />
       <PackageReference Include="Serilog.Sinks.Seq" />
@@ -24,6 +23,10 @@
         <Link>.dockerignore</Link>
         <DependentUpon>Dockerfile</DependentUpon>
       </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageVersion Update="Serilog.Enrichers.AssemblyName" Version="2.0.0" />
     </ItemGroup>
 
 </Project>

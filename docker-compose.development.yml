@@ -18,12 +18,13 @@ services:
 #  rabbitmq-plugins disable rabbitmq_management
   rabbitmq:
     image: rabbitmq:3.13.7
+    hostname: rabbitmq
     container_name: rabbitmq
     environment:
       - RABBITMQ_DEFAULT_USER=administrator
       - RABBITMQ_DEFAULT_PASS=administrator
     ports:
-      - "5673:5672"
+      - "5672:5672"
       - "15672:15672"
   
   seq:

@@ -1,5 +1,6 @@
 using Application;
 using Domain;
+using MessageBroker;
 using Persistence;
 using Persistence.Contracts;
 using Serilog;
@@ -28,6 +29,7 @@ file static class Program
 
             builder.Services
                 .AddDomainServices()
+                .AddMessageBroker()
                 .AddPersistenceServices()
                 .AddApplicationServices()
                 .AddWebServices();

@@ -7,6 +7,7 @@
       </PackageReference>
       <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" />
       <PackageReference Include="Serilog.AspNetCore" />
+      <PackageReference Include="Serilog.Enrichers.AssemblyName" />
       <PackageReference Include="Serilog.Enrichers.Environment" />
       <PackageReference Include="Serilog.Exceptions" />
       <PackageReference Include="Serilog.Sinks.Seq" />
@@ -15,6 +16,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Application\Application.csproj" />
+      <ProjectReference Include="..\MessageBroker\MessageBroker.csproj" />
       <ProjectReference Include="..\Persistence\Persistence.csproj" />
     </ItemGroup>
 
